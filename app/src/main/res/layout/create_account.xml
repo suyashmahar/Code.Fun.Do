@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect with your\nSociety ! "
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_above="@+id/search_apartment"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/search_apartment"
+        android:hint="Search your Apartment"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:drawableLeft="@drawable/search_icon_opt"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:background="@drawable/rounded_border"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/search_apartment"
+        android:text="join apartment"
+        android:id="@+id/btn_join"
+        android:padding="20dp"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_join"
+        android:text="Can't find your apartment ?"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:id="@+id/txt"
+        android:layout_marginBottom="5dp"
+        android:onClick="createApartment"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt"
+        android:text="Create Your Apartment"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:onClick="createApartment"
+        />
+</RelativeLayout>
