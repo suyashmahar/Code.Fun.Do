@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_complaint_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginTop="24dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    tools:context="com.android.example.neighbours.ComplaintDetail">
+    <TextView
+        android:id="@+id/notification_detail_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/notification_detail_title"
+        android:layout_below="@+id/notification_detail_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Notification Title"
+        style="@style/Base.TextAppearance.AppCompat.Title"
+        android:layout_marginTop="16dp" />
+    <TextView
+        android:id="@+id/notification_detail_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        tools:text="28 January 2017"
+        style="@style/Base.TextAppearance.AppCompat.Small"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/notification_detail_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:text="akjfdh lak sfljah a dl adl adslfad fljadhfljdhflazsdb d lajhdf ljfdal ahlfd laj fl a af ladsfjhaldfh ljdsa hdljash lajdf haf dljfdlajhfljaldf haldj fhaljdf  afn,madf  adfladfla fadfl dafl adfoiwe vadl davlnbao adnvalnva "
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:layout_below="@+id/notification_detail_title"
+        />
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/notification_detail_description"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#b25261"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:text="Posted by General Secretary in favour of Society"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:textSize="16sp"/>
+</RelativeLayout>
