@@ -20,6 +20,8 @@
         <TextView
             android:id="@+id/event_card_title"
             android:text="Event Title"
+            android:maxLines="1"
+            android:ellipsize="end"
             style="@style/Base.TextAppearance.AppCompat.Title"
             android:layout_toRightOf="@+id/event_card_image"
             android:layout_marginTop="24dp"
@@ -29,6 +31,8 @@
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/event_card_rel_time"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="few decades ago"
             android:layout_toRightOf="@id/event_card_image"
             android:layout_below="@+id/event_card_title"
@@ -40,6 +44,7 @@
             android:id="@+id/event_card_description"
             android:text="fn kadfn dafks kjdafsl adkflkadnflj  ;akldfn lkadfn kafsndl akldfn kadfn dafks kjdafsl adkflkadnflj "
             android:maxLines="3"
+            android:lines="3"
             android:ellipsize="end"
             android:layout_toRightOf="@id/event_card_image"
             android:layout_below="@+id/event_card_rel_time"

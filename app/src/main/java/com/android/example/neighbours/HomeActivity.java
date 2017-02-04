@@ -50,17 +50,25 @@ import java.util.concurrent.TimeUnit;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
     RecyclerView eventsRecyclerView;
+    RecyclerView campaignRecyclerView;
+    RecyclerView notificationRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        populateEvents();
+        populateCampaigns();
+        populatenotifications();
+    }
+
+    public void populateEvents(){
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("events");
+        DatabaseReference ref = database.getReference("commuities/sample_community/events");
 
         eventsRecyclerView = (RecyclerView) findViewById(R.id.activity_home_events_recycler);
         LinearLayoutManager eventLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -78,7 +86,7 @@ public class HomeActivity extends Activity {
                         eventList.add(new Events(event.get("description"),
                                 (String)event.get("id"),
                                 event.get("image"),
-                                event.get("of_community"),
+                                "sample_community",
                                 event.get("organizer"),
                                 event.get("time"),
                                 event.get("title"),
@@ -97,11 +105,87 @@ public class HomeActivity extends Activity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
-                }
+            }
         });
-
     }
 
+    public void populateCampaigns(){
+        // Get a reference to our posts
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("commuities/sample_community/campaigns");
 
+        campaignRecyclerView = (RecyclerView) findViewById(R.id.activity_home_campaign_recycler);
+        LinearLayoutManager eventLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        campaignRecyclerView.setLayoutManager(eventLayoutManager);
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<Map> post = (ArrayList<Map>) dataSnapshot.getValue();
+                List<Campaign> campaignList = new ArrayList<Campaign>();
+
+                int campaignCount = 0;
+                for (Map<String, String> campaign : post){
+                    if (campaignCount < 5) {
+                        campaignList.add(new Campaign(campaign.get("description"),
+                                campaign.get("total_funds"),
+                                campaign.get("id"),
+                                campaign.get("title"),
+                                campaign.get("total_funds")
+                        ));
+                    } else {
+                        break;
+                    }
+                }
+
+                MainActivityCampaignAdapter campaignAdapter = new MainActivityCampaignAdapter(campaignList);
+                campaignRecyclerView.setAdapter(campaignAdapter);
+                campaignAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+    }
+    public void populatenotifications(){
+        // Get a reference to our posts
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("commuities/sample_community/notifications");
+
+        notificationRecyclerView = (RecyclerView) findViewById(R.id.activity_home_notice_recycler);
+        LinearLayoutManager eventLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        notificationRecyclerView .setLayoutManager(eventLayoutManager);
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<Map> post = (ArrayList<Map>) dataSnapshot.getValue();
+                List<NotificationItem> notificationList = new ArrayList<NotificationItem>();
+
+                int campaignCount = 0;
+                for (Map<String, String> campaign : post){
+                    if (campaignCount < 5) {
+                        notificationList.add(new NotificationItem(campaign.get("description"),
+                                campaign.get("time"),
+                                campaign.get("title")
+                        ));
+                    } else {
+                        break;
+                    }
+                }
+
+                MainActivityNotificationAdapter notificationAdapter = new MainActivityNotificationAdapter(notificationList);
+                notificationRecyclerView.setAdapter(notificationAdapter);
+                notificationAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+    }
 
 }

@@ -39,6 +39,7 @@
             <TextView
                 android:id="@+id/campaign_card_description"
                 android:text="fn kadfn dafks kjdafsl adkflkadnflj  ;akldfn lkadfn kafsndl akldfn kadfn dafks kjdafsl adkflkadnflj "
+                android:lines="3"
                 android:maxLines="3"
                 android:ellipsize="end"
                 android:layout_toRightOf="@id/campaign_card_image"
