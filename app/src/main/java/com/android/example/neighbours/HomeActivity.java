@@ -52,12 +52,18 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 
 public class HomeActivity extends Activity {
     RecyclerView eventsRecyclerView;
+    RecyclerView campaignRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        populateEvents();
+        populateCampaigns();
+    }
+
+    public void populateEvents(){
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("events");
@@ -97,11 +103,49 @@ public class HomeActivity extends Activity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
-                }
+            }
         });
-
     }
 
+    public void populateCampaigns(){
+        // Get a reference to our posts
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("campaigns");
 
+        campaignRecyclerView = (RecyclerView) findViewById(R.id.activity_home_campaign_recycler);
+        LinearLayoutManager eventLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        campaignRecyclerView.setLayoutManager(eventLayoutManager);
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<Map> post = (ArrayList<Map>) dataSnapshot.getValue();
+                List<Campaign> campaignList = new ArrayList<Campaign>();
+
+                int campaignCount = 0;
+                for (Map<String, String> campaign : post){
+                    if (campaignCount < 5) {
+                        campaignList.add(new Campaign(campaign.get("description"),
+                                campaign.get("total_funds"),
+                                campaign.get("id"),
+                                campaign.get("title"),
+                                campaign.get("total_funds")
+                        ));
+                    } else {
+                        break;
+                    }
+                }
+
+                MainActivityCampaignAdapter campaignAdapter = new MainActivityCampaignAdapter(campaignList);
+                campaignRecyclerView.setAdapter(campaignAdapter);
+                campaignAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+    }
 
 }
