@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+    <ImageView
+    android:layout_width="60dp"
+    android:layout_height="match_parent"
+    android:src="@mipmap/ic_launcher"
+    android:scaleType="fitXY"
+        android:layout_marginRight="10dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/shape_circle"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:weightSum="7">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:layout_marginTop="5dp"
+            android:weightSum="5">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="20sp"
+        android:gravity="left"
+        android:layout_weight="3"
+        tools:text="Harshit Bansal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:layout_weight="2"
+                android:gravity="center|center_vertical"
+                tools:text="MOBILE"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:layout_weight="3"
+            android:gravity="left"
+            tools:text="BG-95 Rajendra Bhawan"/>
+    </LinearLayout>
+</LinearLayout>
