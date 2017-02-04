@@ -87,6 +87,6 @@
             </android.support.v7.widget.RecyclerView>
         </RelativeLayout>
 
-</RelativeLayout>
+
     </ScrollView>
 </RelativeLayout>

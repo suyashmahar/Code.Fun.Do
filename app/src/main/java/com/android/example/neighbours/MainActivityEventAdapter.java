@@ -19,7 +19,7 @@ import static android.R.attr.onClick;
  */
 
 public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityEventAdapter.MoviesViewHolder> {
-    private List<EventItem> events = new ArrayList<EventItem>();
+    private List<Events> events = new ArrayList<Events>();
 
     public class MoviesViewHolder extends RecyclerView.ViewHolder{
         public TextView title, relTime, description, commentsCount, hearts;
@@ -36,10 +36,18 @@ public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityE
         }
     }
 
-    public MainActivityEventAdapter(List<EventItem> events){
+    public MainActivityEventAdapter(List<Events> events){
         this.events = events;
     }
 
+
+    public MainActivityEventAdapter(){
+        this.events = events;
+    }
+
+    public void setList(List<Events> events){
+        this.events = events;
+    }
     @Override
     public MoviesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View itemView  = LayoutInflater.from(parent.getContext())
@@ -55,11 +63,11 @@ public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityE
 
     @Override
     public void onBindViewHolder(MoviesViewHolder holder, int position){
-        EventItem event = events.get(position);
+        Events event = events.get(position);
         holder.title.setText(event.getTitle());
         holder.description.setText(event.getDescription());
-        holder.hearts.setText(event.getDescription());
-        holder.commentsCount.setText(event.getDescription());
+        holder.hearts.setText(event.getVotes());
+        holder.commentsCount.setText("100");
         //holder.image.getImage(event.getDescription());
     }
 

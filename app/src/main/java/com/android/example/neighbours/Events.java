@@ -1,7 +1,7 @@
 package com.android.example.neighbours;
 
-public class EventItem{
-    @com.google.gson.annotations.SerializedName("text")
+public class Events{
+    @com.google.gson.annotations.SerializedName("id")
     private String id;
     @com.google.gson.annotations.SerializedName("title")
     private String title;
@@ -22,11 +22,11 @@ public class EventItem{
     @com.google.gson.annotations.SerializedName("complete")
     private boolean mComplete;
 
-    public EventItem(){
+    public Events(){
 
     }
 
-    public EventItem(String description, String id, String image, String of_community, String organizer, String time, String title, String votes) {
+    public Events(String description, String id, String image, String of_community, String organizer, String time, String title, String votes) {
         this.description = description;
         this.id = id;
         this.image = image;
@@ -112,6 +112,6 @@ public class EventItem{
 
     @Override
     public boolean equals(Object o) {
-        return o instanceof EventItem && ((EventItem) o).id == id;
+        return o instanceof Events && ((Events) o).id == id;
     }
 }
