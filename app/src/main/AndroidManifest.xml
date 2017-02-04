@@ -24,7 +24,8 @@
         <activity android:name=".EventDetail" />
         <activity android:name=".CampaignDetail" />
         <activity android:name=".ComplaintDetail" />
-        <activity android:name=".NotificationDetail"></activity>
+        <activity android:name=".NotificationDetail" />
+        <activity android:name=".CreateEvent"></activity>
     </application>
 
 </manifest>
