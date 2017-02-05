@@ -111,15 +111,15 @@ public class Uploader {
     }
 
 
-    public int createAndPushComplaints(NotificationItem notification){
+    public int createAndPushComplaints(Complaint complaint){
         settings = context.getSharedPreferences(PREFERENCE_NAME, 0);
         String community = settings.getString("community_name", "sample_community");
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference ref = database.getReference("commuities/" + community + "/notifications/" + (int)(campaignCount + 1));
-        ref.setValue(notification);
-        incrementCount(NOTIFICATIONS, 1);
-        notificationCount++;
+        final DatabaseReference ref = database.getReference("commuities/" + community + "/complaints/" + (int)(campaignCount + 1));
+        ref.setValue(complaint);
+        incrementCount(COMPLAINTS, 1);
+        complaintsCount++;
         return 1;
     }
 
