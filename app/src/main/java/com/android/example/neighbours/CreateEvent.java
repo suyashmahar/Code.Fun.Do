@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -63,6 +64,17 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
             }
         });
 
+        final String desc = eventDescription.toString();
+        final String title = eventName.getText().toString();
+
+        Button okButton = (Button) findViewById(R.id.create_event_post);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uploader uploader = new Uploader(getApplicationContext());
+                uploader.createAndPushEvent(new Events(desc, "a1", "sample_image", "comm","sample", "12:00", title, "100k"));
+            }
+        });
     }
 
     @Override
