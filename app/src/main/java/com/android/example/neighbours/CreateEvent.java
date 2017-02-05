@@ -6,73 +6,51 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
-import android.icu.util.Calendar;
+import java.util.Calendar;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class CreateEvent extends AppCompatActivity {
-TextView date,time;
-ImageView selectTime;
+public class CreateEvent extends AppCompatActivity implements View.OnClickListener{
+
+    EditText eventName,eventVenue,eventDescription,eventGuests;
+
+    private int mYear, mMonth, mDay, mHour, mMinute;
+
+    private static final int RESULT_LOAD_IMAGE=1;
+
+    EditText date,time;
+    ImageView selectTime,selectDate;
     LinearLayout attachPhoto;
-    private int pHour;
-    private int pMinute;
-    /** This integer will uniquely define the dialog to be used for displaying time picker.*/
-    static final int TIME_DIALOG_ID = 0;
-    private static int RESULT_LOAD_IMAGE = 1;
-
-    /** Callback received when the user "picks" a time in the dialog */
-    private TimePickerDialog.OnTimeSetListener mTimeSetListener =
-            new TimePickerDialog.OnTimeSetListener() {
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    pHour = hourOfDay;
-                    pMinute = minute;
-                    updateDisplay();
-                }
-            };
-
-    private void updateDisplay() {
-        time.setText(
-                new StringBuilder()
-                        .append(pad(pHour)).append(":")
-                        .append(pad(pMinute)));
-    }
-
-    private static String pad(int c) {
-        if (c >= 10)
-            return String.valueOf(c);
-        else
-            return "0" + String.valueOf(c);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
-        date=(TextView)findViewById(R.id.create_event_date_display);
-        time=(TextView)findViewById(R.id.create_event_time_display);
+
+        eventName=(EditText)findViewById(R.id.create_event_title);
+        eventVenue=(EditText)findViewById(R.id.create_event_venue);
+        eventGuests=(EditText)findViewById(R.id.create_event_guests);
+        eventDescription=(EditText)findViewById(R.id.create_event_description);
+
+        date=(EditText) findViewById(R.id.create_event_date_display);
+        time=(EditText) findViewById(R.id.create_event_time_display);
         selectTime=(ImageView)findViewById(R.id.create_event_select_time);
+        selectDate=(ImageView)findViewById(R.id.create_event_select_date);
+
+        selectDate.setOnClickListener(this);
+        selectTime.setOnClickListener(this);
+
         attachPhoto=(LinearLayout)findViewById(R.id.layout_event_attach_photo);
 
-        selectTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(TIME_DIALOG_ID);
-                Calendar cal = Calendar.getInstance();
-                pHour = cal.get(Calendar.HOUR_OF_DAY);
-                pMinute = cal.get(Calendar.MINUTE);
-
-                /** Display the current time in the TextView */
-                updateDisplay();
-            }
-        });
         attachPhoto=(LinearLayout)findViewById(R.id.layout_event_attach_photo);
         attachPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,34 +80,57 @@ ImageView selectTime;
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            ImageView imageView = (ImageView) findViewById(R.id.campaign_image);
+            ImageView imageView = (ImageView) findViewById(R.id.event_image);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
         }
     }
 
     @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case TIME_DIALOG_ID:
-                return new TimePickerDialog(this,
-                        mTimeSetListener, pHour, pMinute, false);
+    public void onClick(View v) {
+        if (v == selectDate) {
+
+            // Get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+
+                            date.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
         }
-        return null;
+        if (v == selectTime) {
+
+            // Get Current Time
+            final Calendar c = Calendar.getInstance();
+            mHour = c.get(Calendar.HOUR_OF_DAY);
+            mMinute = c.get(Calendar.MINUTE);
+
+            // Launch Time Picker Dialog
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                    new TimePickerDialog.OnTimeSetListener() {
+
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay,
+                                              int minute) {
+
+                            time.setText(hourOfDay + ":" + minute);
+                        }
+                    }, mHour, mMinute, false);
+            timePickerDialog.show();
+        }
     }
-    public void selectDate(View view){
-        final Calendar calendar = Calendar.getInstance();
-        int yy = calendar.get(Calendar.YEAR);
-        int mm = calendar.get(Calendar.MONTH);
-        int dd = calendar.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePicker = new DatePickerDialog(CreateEvent.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                String dated = "Date"+String.valueOf(year) +"-"+String.valueOf(monthOfYear)
-                        +"-"+String.valueOf(dayOfMonth);
-               date.setText(dated);
-            }
-        }, yy, mm, dd);
-        datePicker.show();
-    }
-    }
+}
+
+
 

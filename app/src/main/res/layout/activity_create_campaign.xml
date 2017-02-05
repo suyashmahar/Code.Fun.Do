@@ -33,14 +33,8 @@
                 android:id="@+id/create_campaign_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Base.TextAppearance.AppCompat.Title"
                 android:hint="Campaign Name" />
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                android:progress="100"
-                />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -49,7 +43,6 @@
         android:layout_below="@+id/layout_campaign_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:weightSum="10">
         <ImageView
             android:layout_width="wrap_content"
@@ -67,20 +60,18 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="4"
             android:weightSum="5">
-            <TextView
+            <EditText
                 android:id="@+id/create_campaign_date_display"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/Base.TextAppearance.AppCompat.Title"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
+                android:hint="Date"
                 android:layout_weight="4"/>
             <ImageView
                 android:id="@+id/create_campaign_select_date"
-                android:layout_gravity="center"
                 android:src="@drawable/ic_today_black_24dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="selectDate"/>
         </LinearLayout>
@@ -91,22 +82,20 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:weightSum="5">
-            <TextView
+            <EditText
                 android:id="@+id/create_campaign_time_display"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                style="@style/Base.TextAppearance.AppCompat.Title"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
+                android:hint="Time"
                 android:layout_weight="4"/>
             <ImageView
                 android:id="@+id/create_campaign_select_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/ic_query_builder_black_24dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/ic_query_builder_black_24dp" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -136,12 +125,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
                 android:hint="Venue" />
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                android:progress="100"
-                />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -172,12 +156,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
                 android:hint="Special Guests" />
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                android:progress="100"
-                />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -208,12 +187,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
                 android:hint="Event Description" />
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                android:progress="100"
-                />
+
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -224,7 +198,7 @@
         android:orientation="vertical"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="5dp"
-        android:background="#8000000">
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
