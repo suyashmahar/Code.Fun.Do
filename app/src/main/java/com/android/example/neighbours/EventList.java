@@ -9,6 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class EventList extends AppCompatActivity {
+public class EventList extends AppCompatActivity implements ClickListener{
     RecyclerView eventsRecyclerView;
 
     @Override
@@ -77,8 +80,9 @@ public class EventList extends AppCompatActivity {
                     }
                 }
 
-                MainActivityEventAdapter eventAdapter = new MainActivityEventAdapter(eventList);
+                EventListAdapter eventAdapter = new EventListAdapter(eventList);
                 eventsRecyclerView.setAdapter(eventAdapter);
+                eventAdapter.setClickListener(EventList.this);
                 eventAdapter.notifyDataSetChanged();
             }
 
@@ -89,4 +93,22 @@ public class EventList extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void itemClicked(View view, int position) {
+        ImageView img=(ImageView)view.findViewById(R.id.event_tile_image);
+        TextView title=(TextView)view.findViewById(R.id.event_tile_title);
+        TextView description=(TextView)view.findViewById(R.id.event_tile_description);
+        TextView date=(TextView)view.findViewById(R.id.event_tile_rel_time);
+        TextView hearts=(TextView)view.findViewById(R.id.event_tile_hearts);
+        TextView comments=(TextView)view.findViewById(R.id.event_tile_comments_count);
+
+        Intent i=new Intent(EventList.this,EventDetail.class);
+
+        i.putExtra("EventName",title.toString());
+        i.putExtra("EventDescription",description.toString());
+        i.putExtra("EventTime",date.toString());
+        i.putExtra("EventHearts",hearts.toString());
+        i.putExtra("EventComments",comments.toString());
+        startActivity(i);
+    }
 }

@@ -56,6 +56,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/view"
         android:text="Posted by General Secretary in favour of Society"
-        style="@style/Base.TextAppearance.AppCompat.Caption"
-        android:textSize="16sp"/>
+        android:textSize="14sp"/>
 </RelativeLayout>

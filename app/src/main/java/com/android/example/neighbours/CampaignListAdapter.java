@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,19 +23,34 @@ import static android.R.attr.onClick;
 public class CampaignListAdapter extends RecyclerView.Adapter<CampaignListAdapter.MoviesViewHolder> {
     private List<Campaign> campaigns = new ArrayList<Campaign>();
 
-    public class MoviesViewHolder extends RecyclerView.ViewHolder{
+    private ClickListener clickListener = null;
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
+    public class MoviesViewHolder extends RecyclerView.ViewHolder {
         public TextView title, relTime, description, totalFunds;
         ProgressBar campaignProgress;
 
         public ImageView image;
 
-        public MoviesViewHolder(View view){
+        public MoviesViewHolder(View view) {
             super(view);
+            RelativeLayout main = (RelativeLayout) view.findViewById(R.id.campaign_tile_layout);
             title = (TextView) view.findViewById(R.id.campaign_tile_title);
             relTime = (TextView) view.findViewById(R.id.campaign_tile_rel_time);
             description = (TextView) view.findViewById(R.id.campaign_tile_description);
-            //campaignProgress = (ProgressBar) view.findViewById(R.id.campaign_tile_progress_bar);
+            campaignProgress = (ProgressBar) view.findViewById(R.id.campaign_tile_progress_bar);
             totalFunds = (TextView) view.findViewById(R.id.campaign_tile_total_fund);
+            main.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clickListener != null) {
+                        clickListener.itemClicked(v, getAdapterPosition());
+                    }
+                }
+            });
+
         }
     }
 

@@ -5,6 +5,7 @@
     android:layout_margin="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
         <RelativeLayout
+            android:id="@+id/campaign_tile_layout"
             android:layout_width="340dp"
             android:layout_height="180dp">
             <ImageView
@@ -25,7 +26,7 @@
             <TextView
                 android:id="@+id/campaign_tile_rel_time"
                 android:text="few decades ago"
-                android:layout_toRightOf="@id/campaign_tile_image"
+                android:layout_toRightOf="@+id/campaign_tile_image"
                 android:layout_below="@+id/campaign_tile_title"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
@@ -37,7 +38,7 @@
                 android:lines="3"
                 android:maxLines="3"
                 android:ellipsize="end"
-                android:layout_toRightOf="@id/campaign_tile_image"
+                android:layout_toRightOf="@+id/campaign_tile_image"
                 android:layout_below="@+id/campaign_tile_rel_time"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -48,8 +49,8 @@
                 style="@style/TextAppearance.AppCompat.Body1"/>
             <TextView
                 android:id="@+id/campaign_tile_total_fund"
-                android:layout_below="@id/campaign_tile_description"
-                android:layout_toRightOf="@id/campaign_tile_image"
+                android:layout_below="@+id/campaign_tile_description"
+                android:layout_toRightOf="@+id/campaign_tile_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$100"
@@ -62,7 +63,7 @@
                 android:layout_height="10dp"
                 android:layout_marginTop="2dp"
                 style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_below="@id/campaign_tile_description"
+                android:layout_below="@+id/campaign_tile_description"
                 android:layout_toRightOf="@+id/campaign_tile_total_fund"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
