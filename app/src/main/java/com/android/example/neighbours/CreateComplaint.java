@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
-public class create_complaint extends AppCompatActivity
+public class CreateComplaint extends AppCompatActivity
 {
 
     @Override

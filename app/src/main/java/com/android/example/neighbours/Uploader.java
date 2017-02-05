@@ -98,15 +98,28 @@ public class Uploader {
         return 1;
     }
 
-    public int createAndPushNotification(Notification notification){
+    public int createAndPushNotification(NotificationItem notification){
         settings = context.getSharedPreferences(PREFERENCE_NAME, 0);
         String community = settings.getString("community_name", "sample_community");
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference ref = database.getReference("commuities/" + community + "/notification/" + (int)(campaignCount + 1));
+        final DatabaseReference ref = database.getReference("commuities/" + community + "/notifications/" + (int)(campaignCount + 1));
         ref.setValue(notification);
         incrementCount(NOTIFICATIONS, 1);
-        campaignCount++;
+        notificationCount++;
+        return 1;
+    }
+
+
+    public int createAndPushComplaints(NotificationItem notification){
+        settings = context.getSharedPreferences(PREFERENCE_NAME, 0);
+        String community = settings.getString("community_name", "sample_community");
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference ref = database.getReference("commuities/" + community + "/notifications/" + (int)(campaignCount + 1));
+        ref.setValue(notification);
+        incrementCount(NOTIFICATIONS, 1);
+        notificationCount++;
         return 1;
     }
 

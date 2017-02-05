@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class create_notification extends AppCompatActivity
+public class CreateNotification extends AppCompatActivity
 {
 
     @Override
