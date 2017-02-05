@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_create_complaint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.android.example.neighbours.create_complaint">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="Lodge a Complaint"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/notify_heading" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:layout_below="@+id/notify_heading"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="3dp"
+                android:textAllCaps="false"
+                android:text="Title              : "
+                android:id="@+id/title" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/title"
+                android:paddingLeft="5dp"
+                android:layout_alignBaseline="@id/title"
+                android:textSize="15dp"
+                android:hint="Title of Complaint"
+                android:gravity="center_horizontal"
+                android:id="@+id/complaint_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginTop="13dp"
+                android:layout_alignStart="@id/title"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Date              : "
+                android:id="@+id/show_date" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:gravity="center_horizontal"
+                android:text="Date goes here automatically"
+                android:layout_alignBaseline="@id/show_date"
+                android:layout_toRightOf="@id/show_date"
+                android:id="@+id/date_complaint" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/show_date"
+                android:layout_marginTop="13dp"
+                android:layout_alignStart="@id/show_date"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Complainer : "
+                android:id="@+id/complainer_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/complainer_line"
+                android:layout_toRightOf="@id/complainer_line"
+                android:layout_centerHorizontal="true"
+                android:textSize="15dp"
+                android:text="Username of current device"
+                android:gravity="center_horizontal"
+                android:id="@+id/complainer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/complainer_line"
+                android:textSize="15dp"
+                android:layout_below="@id/complainer_line"
+                android:layout_marginTop="13dp"
+                android:textStyle="bold"
+                android:text="Complaint Type : "
+                android:id="@+id/radio_title" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/radio_title"
+                android:layout_toRightOf="@id/radio_title"
+                android:layout_marginLeft="6dp"
+                android:text="Public"
+                android:scaleX="0.9"
+                android:scaleY="0.9"
+                android:textSize="15dp"
+                android:id="@+id/radio_pub" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/radio_title"
+                android:layout_toRightOf="@id/radio_pub"
+                android:layout_marginLeft="8dp"
+                android:textSize="15dp"
+                android:scaleX="0.9"
+                android:scaleY="0.9"
+                android:text="Private"
+                android:id="@+id/radio_private" />
+
+            <ImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_alignStart="@id/radio_title"
+                android:layout_below="@id/radio_title"
+                android:layout_marginTop="14dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/lines"
+                android:id="@+id/message_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/message_icon"
+                android:layout_marginLeft="4dp"
+                android:layout_below="@id/radio_title"
+                android:layout_marginTop="14dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Complaint Details : "
+                android:id="@+id/message_line" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/radio_title"
+                android:layout_below="@id/message_line"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="2dp"
+                android:textSize="15dp"
+                android:hint="Write your complaint here....."
+                android:id="@+id/message_complaint" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/message_complaint"
+                android:layout_marginTop="17.5dp"
+                android:elevation="3dp"
+                android:layout_centerHorizontal="true"
+                android:text="Lodge complaint"
+                android:id="@+id/send" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/radio_title"
+                android:layout_below="@id/send"
+                android:layout_marginTop="19dp"
+                android:textSize="12dp"
+                android:layout_alignParentBottom="true"
+                android:text="NOTE: In PRIVATE mode, the complaint will be seen only by the admin, while in case of PUBLIC mode the complaint will be sent to all the members of the community."
+                android:id="@+id/warning_message" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
