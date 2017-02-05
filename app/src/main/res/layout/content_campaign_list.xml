@@ -2,15 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_event_list"
+    android:id="@+id/content_campaign_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.android.example.neighbours.EventList"
-    tools:showIn="@layout/activity_event_list">
+    tools:context="com.android.example.neighbours.CampaignList"
+    tools:showIn="@layout/activity_campaign_list">
+
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/content_event_list_recyler"
+        android:id="@+id/campaign_list_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

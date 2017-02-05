@@ -36,6 +36,7 @@
                 android:backgroundTint="@color/colorPrimary"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:textColor="@color/colorPrimary"/>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/activity_home_events_recycler"
                 android:layout_marginTop="8dp"

@@ -21,6 +21,7 @@
 
     <string name="title_activity_notification_list">NotificationList</string>
     <string name="title_activity_event_list">EventList</string>
+    <string name="title_activity_campaign_list">CampaignList</string>
 
 
 </resources>

@@ -2,6 +2,7 @@ package com.android.example.neighbours;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -56,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView campaignRecyclerView;
     RecyclerView notificationRecyclerView;
     int campaignCount = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -64,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
 
         populateEvents();
         populateCampaigns();
-        populatenotifications();
+        populateNotifications();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -73,16 +75,39 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent newIntent = new Intent(view.getContext(), EventList.class );
+                startActivity(newIntent);
+                /*
                 Uploader uploader = new Uploader(getApplicationContext());
                 Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
-                /*
+
                 final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
                 Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
                 ref.setValue(eventToAdd);
                 campaignCount++;
-                */
-                uploader.createAndPushEvent(eventToAdd);
 
+                uploader.createAndPushEvent(eventToAdd);
+            */
+            }
+        });
+        Button moreCampaignsButton = (Button)findViewById(R.id.activity_home_more_campaign_button);
+        moreCampaignsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent newIntent = new Intent(view.getContext(), CampaignList.class );
+                startActivity(newIntent);
+                /*
+                Uploader uploader = new Uploader(getApplicationContext());
+                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+
+                final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
+                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+                ref.setValue(eventToAdd);
+                campaignCount++;
+
+                uploader.createAndPushEvent(eventToAdd);
+            */
             }
         });
     }
@@ -172,7 +197,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-    public void populatenotifications(){
+
+    public void populateNotifications(){
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("commuities/sample_community/notifications");
