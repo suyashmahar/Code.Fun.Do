@@ -91,36 +91,25 @@
                 android:hint="Enter Message here....."
                 android:id="@+id/notify_message" />
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/notify_message"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="28dp"
+                android:layout_centerHorizontal="true"
+                android:text="SEND NOTIFICATION"
+                android:elevation="3dp"
+                android:id="@+id/confirm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/confirm"
+                android:layout_marginTop="10dp"
                 android:textStyle="normal"
                 android:textSize="10dp"
                 android:text="NOTE: The notification will be automatically sent to all the members of the community, as soon as you press the SEND button."
                 android:id="@+id/warning_message" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/warning_message"
-                android:layout_marginTop="20dp"
-                android:elevation="3dp"
-                android:layout_marginLeft="52dp"
-                android:text="DISCARD"
-                android:id="@+id/deny" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/warning_message"
-                android:layout_marginTop="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="52dp"
-                android:text="SEND"
-                android:elevation="3dp"
-                android:id="@+id/confirm" />
 
         </RelativeLayout>
 
