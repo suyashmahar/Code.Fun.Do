@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -54,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView eventsRecyclerView;
     RecyclerView campaignRecyclerView;
     RecyclerView notificationRecyclerView;
-
+    int campaignCount = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,25 @@ public class HomeActivity extends AppCompatActivity {
         populateEvents();
         populateCampaigns();
         populatenotifications();
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        Button moreEventsButton = (Button)findViewById(R.id.activity_home_more_events_button);
+        moreEventsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uploader uploader = new Uploader(getApplicationContext());
+                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+                /*
+                final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
+                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+                ref.setValue(eventToAdd);
+                campaignCount++;
+                */
+                uploader.createAndPushEvent(eventToAdd);
+
+            }
+        });
     }
 
     public void populateEvents(){
@@ -92,6 +112,7 @@ public class HomeActivity extends AppCompatActivity {
                                 event.get("title"),
                                 event.get("votes")
                         ));
+                        eventCount++;
                     } else {
                         break;
                     }
