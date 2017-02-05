@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:layout_marginLeft="0dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginRight="10dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.example.neighbours.CreateEvent">
     <LinearLayout
-        android:id="@+id/layout_event_title"
+        android:id="@+id/layout_campaign_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="10">
-    <ImageView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_date_range_black_24dp"
@@ -24,29 +24,29 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             style="@style/Base.TextAppearance.AppCompat.Caption"/>
-<LinearLayout
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="9"
-    android:orientation="vertical">
-    <EditText
-    android:id="@+id/create_event_title"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/Base.TextAppearance.AppCompat.Title"
-    android:hint="Event Name" />
-    <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-        android:progress="100"
-        />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/create_campaign_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Base.TextAppearance.AppCompat.Title"
+                android:hint="Campaign Name" />
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:progress="100"
+                />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_event_time"
-        android:layout_below="@+id/layout_event_title"
+        android:id="@+id/layout_campaign_time"
+        android:layout_below="@+id/layout_campaign_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -68,7 +68,7 @@
             android:layout_weight="4"
             android:weightSum="5">
             <TextView
-                android:id="@+id/create_event_date_display"
+                android:id="@+id/create_campaign_date_display"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
@@ -76,7 +76,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_weight="4"/>
             <ImageView
-                android:id="@+id/create_event_select_date"
+                android:id="@+id/create_campaign_select_date"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_today_black_24dp"
                 android:layout_width="0dp"
@@ -92,7 +92,7 @@
             android:layout_marginLeft="5dp"
             android:weightSum="5">
             <TextView
-                android:id="@+id/create_event_time_display"
+                android:id="@+id/create_campaign_time_display"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -101,17 +101,17 @@
                 android:layout_marginBottom="8dp"
                 android:layout_weight="4"/>
             <ImageView
-                android:id="@+id/create_event_select_time"
+                android:id="@+id/create_campaign_select_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/ic_query_builder_black_24dp"
                 android:layout_gravity="center"/>
         </LinearLayout>
-        </LinearLayout>
+    </LinearLayout>
     <LinearLayout
-        android:id="@+id/layout_event_venue"
-        android:layout_below="@+id/layout_event_time"
+        android:id="@+id/layout_campaign_venue"
+        android:layout_below="@+id/layout_campaign_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="10">
@@ -131,7 +131,7 @@
             android:layout_weight="9"
             android:orientation="vertical">
             <EditText
-                android:id="@+id/create_event_venue"
+                android:id="@+id/create_campaign_venue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
@@ -146,8 +146,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_event_guests"
-        android:layout_below="@+id/layout_event_venue"
+        android:id="@+id/layout_campaign_guests"
+        android:layout_below="@+id/layout_campaign_venue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="10">
@@ -167,7 +167,7 @@
             android:layout_weight="9"
             android:orientation="vertical">
             <EditText
-                android:id="@+id/create_event_guests"
+                android:id="@+id/create_campaign_guests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
@@ -182,8 +182,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_event_description"
-        android:layout_below="@+id/layout_event_guests"
+        android:id="@+id/layout_campaign_description"
+        android:layout_below="@+id/layout_campaign_guests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="10">
@@ -203,7 +203,7 @@
             android:layout_weight="9"
             android:orientation="vertical">
             <EditText
-                android:id="@+id/create_event_description"
+                android:id="@+id/create_campaign_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
@@ -217,8 +217,8 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/layout_event_attach_photo"
-        android:layout_below="@+id/layout_event_description"
+        android:id="@+id/layout_campaign_attach_photo"
+        android:layout_below="@+id/layout_campaign_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -229,19 +229,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_add_a_photo_black_24dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="120dp"
-                android:layout_marginRight="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Attach a photo "
-                android:textSize="18sp"
-                android:layout_gravity="center"/>
+         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_a_photo_black_24dp"
+            android:layout_gravity="center"
+             android:layout_marginLeft="120dp"
+             android:layout_marginRight="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attach a photo "
+            android:textSize="18sp"
+            android:layout_gravity="center"/>
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
@@ -250,15 +250,15 @@
             android:text="Attaching a photo helps everyone understand issue better"/>
     </LinearLayout>
     <ImageView
-        android:id="@+id/event_image"
+        android:id="@+id/campaign_image"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_below="@+id/layout_event_attach_photo"
+        android:layout_below="@+id/layout_campaign_attach_photo"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"/>
     <Button
-        android:id="@+id/create_event_post"
-        android:layout_below="@+id/layout_event_attach_photo"
+        android:id="@+id/create_campaign_post"
+        android:layout_below="@+id/layout_campaign_attach_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

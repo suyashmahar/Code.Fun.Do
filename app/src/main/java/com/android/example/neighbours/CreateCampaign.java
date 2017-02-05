@@ -18,15 +18,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class CreateEvent extends AppCompatActivity {
-TextView date,time;
-ImageView selectTime;
+public class CreateCampaign extends AppCompatActivity {
     LinearLayout attachPhoto;
+    TextView date,time;
+    ImageView selectTime;
     private int pHour;
     private int pMinute;
+    private static int RESULT_LOAD_IMAGE = 1;
     /** This integer will uniquely define the dialog to be used for displaying time picker.*/
     static final int TIME_DIALOG_ID = 0;
-    private static int RESULT_LOAD_IMAGE = 1;
 
     /** Callback received when the user "picks" a time in the dialog */
     private TimePickerDialog.OnTimeSetListener mTimeSetListener =
@@ -55,12 +55,10 @@ ImageView selectTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_event);
-        date=(TextView)findViewById(R.id.create_event_date_display);
-        time=(TextView)findViewById(R.id.create_event_time_display);
-        selectTime=(ImageView)findViewById(R.id.create_event_select_time);
-        attachPhoto=(LinearLayout)findViewById(R.id.layout_event_attach_photo);
-
+        setContentView(R.layout.activity_create_campaign);
+        date=(TextView)findViewById(R.id.create_campaign_date_display);
+        time=(TextView)findViewById(R.id.create_campaign_time_display);
+        selectTime=(ImageView)findViewById(R.id.create_campaign_select_time);
         selectTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +71,7 @@ ImageView selectTime;
                 updateDisplay();
             }
         });
-        attachPhoto=(LinearLayout)findViewById(R.id.layout_event_attach_photo);
+        attachPhoto=(LinearLayout)findViewById(R.id.layout_campaign_attach_photo);
         attachPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +104,6 @@ ImageView selectTime;
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
         }
     }
-
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -121,15 +118,15 @@ ImageView selectTime;
         int yy = calendar.get(Calendar.YEAR);
         int mm = calendar.get(Calendar.MONTH);
         int dd = calendar.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePicker = new DatePickerDialog(CreateEvent.this, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog datePicker = new DatePickerDialog(CreateCampaign.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 String dated = "Date"+String.valueOf(year) +"-"+String.valueOf(monthOfYear)
                         +"-"+String.valueOf(dayOfMonth);
-               date.setText(dated);
+                date.setText(dated);
             }
         }, yy, mm, dd);
         datePicker.show();
     }
-    }
+}
 
