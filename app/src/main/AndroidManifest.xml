@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".MainPage"
             android:label="@string/title_activity_main_page"
@@ -30,7 +30,8 @@
         <activity android:name=".CampaignDetail" />
         <activity android:name=".ComplaintDetail" />
         <activity android:name=".NotificationDetail" />
-        <activity android:name=".create_notification"></activity>
+        <activity android:name=".create_notification" />
+        <activity android:name=".create_complaint"></activity>
     </application>
 
 </manifest>
