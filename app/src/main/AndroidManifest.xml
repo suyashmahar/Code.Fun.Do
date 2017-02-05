@@ -10,7 +10,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainPage"
             android:label="@string/title_activity_main_page"
@@ -20,15 +26,16 @@
         <activity android:name=".ComplaintDetail" />
         <activity android:name=".NotificationDetail" />
         <activity android:name=".CreateEvent">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Testing" />
         <activity android:name=".CreateCampaign" />
-        <activity android:name=".MyFlat"></activity>
+        <activity android:name=".MyFlat" />
+        <activity android:name=".MyFlatMembers" />
+        <activity android:name=".MyFlatVehicles" />
+        <activity android:name=".MyFlatStaff" />
+        <activity android:name=".AddFlatVehicle" />
+        <activity android:name=".AddFlatStaff" />
+        <activity android:name=".AddFlatMember"></activity>
     </application>
 
 </manifest>
