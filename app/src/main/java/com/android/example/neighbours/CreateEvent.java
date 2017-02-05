@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,6 +31,8 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     EditText date,time;
     ImageView selectTime,selectDate;
     LinearLayout attachPhoto;
+    Button postEvent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,22 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
         time=(EditText) findViewById(R.id.create_event_time_display);
         selectTime=(ImageView)findViewById(R.id.create_event_select_time);
         selectDate=(ImageView)findViewById(R.id.create_event_select_date);
+        postEvent=(Button)findViewById(R.id.create_event_post);
+        postEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uploader uploader = new Uploader(getApplicationContext());
+                Events eventToAdd = new Events(eventDescription.toString(), "a1", "sample_image", "sample_community", "sample_organizer",date.toString()+" "+time.toString() ,eventName.toString(),"100k");
+                /*
+                final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
+                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+                ref.setValue(eventToAdd);
+                campaignCount++;
+                */
+                uploader.createAndPushEvent(eventToAdd);
+
+            }
+        });
 
         selectDate.setOnClickListener(this);
         selectTime.setOnClickListener(this);
