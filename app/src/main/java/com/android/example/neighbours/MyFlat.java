@@ -6,7 +6,7 @@ import android.widget.Button;
 
 public class MyFlat extends AppCompatActivity {
 
-    Button flatMembers,flatVehivles,flatStaff;
+    Button flatMembers, flatVehivles,flatStaff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,5 @@ public class MyFlat extends AppCompatActivity {
         flatMembers=(Button)findViewById(R.id.myflat_members_btn);
         flatVehivles=(Button)findViewById(R.id.myflat_vehicles_btn);
         flatStaff=(Button)findViewById(R.id.myflat_staff_btn);
-
-
     }
 }
