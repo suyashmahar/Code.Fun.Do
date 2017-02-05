@@ -31,14 +31,16 @@
         <activity android:name=".ComplaintDetail" />
         <activity android:name=".NotificationDetail" />
         <activity android:name=".create_notification" />
-        <activity android:name=".create_complaint"></activity>
-        <activity android:name=".CreateEvent">
-        </activity>
+        <activity android:name=".create_complaint" />
+        <activity android:name=".CreateEvent"></activity>
         <activity android:name=".Testing" />
         <activity android:name=".CreateCampaign" />
-        <activity android:name=".MyFlat"></activity>
-
-        <activity android:name=".create_notification"></activity>
+        <activity android:name=".MyFlat" />
+        <activity android:name=".create_notification" />
+        <activity
+            android:name=".CampaignList"
+            android:label="@string/title_activity_campaign_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

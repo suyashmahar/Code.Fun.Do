@@ -31,8 +31,9 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     Boolean bool=false;
-    EditText password;
-    Button createNewAccount,login;
+    EditText username,password;
+    Button loginButton;
+    Button createNewAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView hide=(ImageView) findViewById(R.id.hide_show);
+        username=(EditText)findViewById(R.id.username);
         password=(EditText)findViewById(R.id.password);
+        loginButton=(Button)findViewById(R.id.btn_login);
 
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (username.toString() == "codefundo" && password.toString() == "password") {
+                    Intent i=new Intent(MainActivity.this,HomeActivity.class);
+                    startActivity(i);
+
+                }
+            }
+        });
 
         findViewById(R.id.username).setOnClickListener(new View.OnClickListener() {
             @Override

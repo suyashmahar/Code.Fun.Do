@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
  <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/campaign_tile_view"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_centerHorizontal="true"
             android:layout_margin="8dp"
-            android:layout_width="match_parent"
-            android:gravity="center"
+            android:layout_width="340dp"
             android:layout_height="180dp">
             <ImageView
-                android:id="@+id/campaign_card_image"
+                android:id="@+id/campaign_tile_image"
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:foreground="#3f3f3f"/>
             <TextView
-                android:id="@+id/campaign_card_title"
+                android:id="@+id/campaign_tile_title"
                 android:text="Campaign Title"
                 style="@style/Base.TextAppearance.AppCompat.Title"
-                android:layout_toRightOf="@+id/campaign_card_image"
+                android:layout_toRightOf="@+id/campaign_tile_image"
                 android:layout_marginTop="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
-                android:id="@+id/campaign_card_rel_time"
+                android:id="@+id/campaign_tile_rel_time"
                 android:text="few decades ago"
-                android:layout_toRightOf="@id/campaign_card_image"
-                android:layout_below="@+id/campaign_card_title"
+                android:layout_toRightOf="@id/campaign_tile_image"
+                android:layout_below="@+id/campaign_tile_title"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.AppCompat.Small"/>
             <TextView
-                android:id="@+id/campaign_card_description"
+                android:id="@+id/campaign_tile_description"
                 android:text="fn kadfn dafks kjdafsl adkflkadnflj  ;akldfn lkadfn kafsndl akldfn kadfn dafks kjdafsl adkflkadnflj "
+                android:lines="3"
                 android:maxLines="3"
                 android:ellipsize="end"
-                android:layout_toRightOf="@id/campaign_card_image"
-                android:layout_below="@+id/campaign_card_rel_time"
+                android:layout_toRightOf="@id/campaign_tile_image"
+                android:layout_below="@+id/campaign_tile_rel_time"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
@@ -44,63 +45,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.AppCompat.Body1"/>
-            <View
-                android:layout_toRightOf="@id/campaign_card_image"
-                android:id="@+id/campaign_card_action_seperator"
+            <TextView
+                android:id="@+id/campaign_tile_total_fund"
+                android:layout_below="@id/campaign_tile_description"
+                android:layout_toRightOf="@id/campaign_tile_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$100"
+                android:layout_marginStart="16dp"
+                android:layout_alignBaseline="@+id/campaign_tile_progress_bar"
+                />
+            <ProgressBar
+                android:id="@+id/campaign_tile_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="2dp"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_below="@id/campaign_tile_description"
+                android:layout_toRightOf="@+id/campaign_tile_total_fund"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_below="@id/campaign_card_description"
-                android:layout_width="500dp"
-                android:layout_height="0.1dp"
-                android:foreground="#99000000"
-                android:layout_marginBottom="8dp"
+                android:progress="100"
                 />
             <ImageView
-                android:id="@+id/campaign_card_heart_toggle"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_below="@+id/campaign_card_action_seperator"
-                android:layout_toRightOf="@id/campaign_card_image"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="16dp"
-                android:src="@mipmap/heart_unchecked"
-                />
-            <TextView
-                android:id="@+id/campaign_card_hearts"
-                android:layout_below="@+id/campaign_card_action_seperator"
-                android:layout_toRightOf="@id/campaign_card_heart_toggle"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="4dp"
-                android:textColor="#a0ff0000"
-                android:text="100k"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <ImageView
-                android:id="@+id/campaign_card_comment"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_below="@+id/campaign_card_action_seperator"
-                android:layout_toRightOf="@id/campaign_card_hearts"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="16dp"
-                android:paddingTop="0dp"
-                android:src="@mipmap/ic_comments"
-                />
-            <TextView
-                android:id="@+id/campaign_card_comments_count"
-                android:layout_below="@+id/campaign_card_action_seperator"
-                android:layout_toRightOf="@id/campaign_card_comment"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="4dp"
-                android:textColor="#159EFF"
-                android:text="100B"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-            <ImageView
-                android:id="@+id/campaign_card_overflow"
+                android:id="@+id/campaign_tile_overflow"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
