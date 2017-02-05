@@ -30,6 +30,13 @@
         <activity android:name=".CampaignDetail" />
         <activity android:name=".ComplaintDetail" />
         <activity android:name=".NotificationDetail" />
+
+        <activity android:name=".CreateEvent">
+        </activity>
+        <activity android:name=".Testing" />
+        <activity android:name=".CreateCampaign" />
+        <activity android:name=".MyFlat"></activity>
+
         <activity android:name=".create_notification"></activity>
     </application>
 

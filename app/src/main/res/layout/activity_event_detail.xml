@@ -1,59 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout android:id="@+id/activity_event_detail"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_event_detail"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <android.support.design.widget.AppBarLayout
+    android:layout_height="match_parent"
+    tools:context="com.android.example.neighbours.CampaignDetail">
+    <ImageView
+        android:id="@+id/activity_event_detail_cover_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
         android:fitsSystemWindows="true"
-        >
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/event_detail_collapsing_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:titleEnabled="true"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"/>
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="300dp"
-               android:scaleType="centerCrop"
-               android:fitsSystemWindows="true"
-               android:src="@drawable/cover_image"/>
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-    </android.support.design.widget.AppBarLayout>
-<android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
-    <RelativeLayout
+        android:src="@drawable/cover_image"/>
+    <TextView
+        android:id="@+id/event_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignBottom="@+id/activity_event_detail_cover_image"
+        tools:text="Event Name"
+        style="@style/Base.TextAppearance.AppCompat.Title"/>
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp">
-    <ImageView
+        android:layout_below="@+id/activity_event_detail_cover_image">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+            <ImageView
         android:id="@+id/event_detail_heart_toggle"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         android:layout_marginTop="5dp"
         android:src="@mipmap/heart_unchecked"
         />
     <TextView
         android:id="@+id/event_detail_hearts"
-        android:layout_below="@+id/event_card_description"
         android:layout_toRightOf="@id/event_detail_heart_toggle"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:textColor="#a0ff0000"
@@ -67,14 +55,14 @@
         android:layout_height="24dp"
         android:layout_toRightOf="@id/event_detail_hearts"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         android:layout_marginTop="5dp"
         android:src="@mipmap/ic_comments"
         />
     <TextView
         android:id="@+id/event_detail_comments_count"
         android:layout_toEndOf="@id/event_detail_comment"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:textColor="#159EFF"
@@ -82,24 +70,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-        <TextView
-            android:id="@+id/event_detail_rel_time"
-            tools:text="Few decades ago"
-            android:layout_below="@+id/event_detail_heart_toggle"
-            android:layout_marginLeft="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextAppearance.AppCompat.Small"/>
-        <TextView
-            android:id="@+id/event_detail_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_below="@+id/event_detail_rel_time"
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            tools:text="hgaHdvbcajhdsbCNDBnVBDznxc  jZv bjB Z BJ  VjlL ZCBCXJB J j j bbbbbbbbbbbjbbbbbbbbbbbbbbbbbbbbbbbjXCBX            JCBjbbbbbbbbbvjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"/>
-    </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+            <ProgressBar
+                android:id="@+id/event_card_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@+id/event_detail_heart_toggle"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:progress="100"
+                />
+            <TextView
+                android:id="@+id/event_detail_rel_time"
+                tools:text="Few decades ago"
+                android:layout_below="@+id/event_card_progress_bar"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Small"/>
+            <TextView
+                android:id="@+id/event_detail_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@+id/event_detail_rel_time"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                tools:text="hgaHdvbcajhdsbCNDBnVBDznxc  jZv bjB Z BJ  VjlL ZCBCXJB J j j bbbbbbbbbbbjbbbbbbbbbbbbbbbbbbbbbbbjXCBX            JCBjbbbbbbbbbvjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"/>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
