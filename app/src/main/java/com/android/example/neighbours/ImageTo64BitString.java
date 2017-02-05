@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 
 public class ImageTo64BitString {
 
-    private String convertToBase64(String imagePath)
+    public static String convertToBase64(String imagePath)
 
     {
 

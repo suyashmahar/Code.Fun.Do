@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_flat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.android.example.neighbours.MyFlat">
+<TextView
+    android:id="@+id/flat_number"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    tools:text="My Flat"
+    style="@style/Base.TextAppearance.AppCompat.Title"
+    android:layout_marginBottom="16dp"/>
+    <LinearLayout
+        android:layout_below="@+id/flat_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+        <Button
+            android:id="@+id/myflat_members_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp"
+            android:drawableTop="@drawable/ic_perm_contact_calendar_black_24dp"
+            android:drawablePadding="0dp"
+            tools:text="MEMBERS"
+            android:textSize="16sp"
+            />
+        <Button
+            android:id="@+id/myflat_vehicles_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp"
+            android:drawableTop="@drawable/ic_directions_car_black_24dp"
+            android:drawablePadding="0dp"
+            tools:text="Vehicles"
+            android:textSize="16sp"
+            />
+        <Button
+            android:id="@+id/myflat_staff_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_group_black_24dp"
+            android:drawablePadding="0dp"
+            android:layout_height="90dp"
+            tools:text="Staff"
+            android:textSize="16sp"
+            />
+
+
+    </LinearLayout>
+</RelativeLayout>
