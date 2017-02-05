@@ -57,7 +57,8 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView notificationRecyclerView;
     int campaignCount = 1;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
@@ -71,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         moreEventsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Uploader uploader = new Uploader(getApplicationContext());
                 Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
                 /*

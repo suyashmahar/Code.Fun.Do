@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,8 +22,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class CreateCampaign extends AppCompatActivity implements View.OnClickListener{
-    EditText campaignName,campaignVenue,campaignDescription,campaignGuests;
 
+    EditText campaignName,campaignVenue,campaignDescription,campaignGuests;
 
     private int mYear, mMonth, mDay, mHour, mMinute;
 
@@ -36,9 +37,12 @@ public class CreateCampaign extends AppCompatActivity implements View.OnClickLis
     private static int RESULT_LOAD_IMAGE = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_campaign);
+
+        ImageView imageView=(ImageView) findViewById(R.id.campaign_image);
 
         campaignName=(EditText)findViewById(R.id.create_campaign_title);
         campaignVenue=(EditText)findViewById(R.id.create_campaign_venue);
@@ -65,7 +69,28 @@ public class CreateCampaign extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+        //putting data in database
+        Button saving=(Button) findViewById(R.id.create_campaign_post);
+
+        saving.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String latest_time=date.getText().toString()+";"+time.getText().toString();
+                 Uploader uploader=new Uploader((getApplicationContext()));
+                //Events events=new Events(campaignDescription.toString(),"a1","sample_image","sample_community","sample_user",latest_time,campaignName.toString(),"sample_votes");
+
+                Campaign campaign=new Campaign(campaignDescription.toString(),"sample funds","sample id",campaignName.toString(),"sample total funds");
+                uploader.createAndPushCampaign(campaign);
+            }
+        });
+
     }
+
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
