@@ -7,36 +7,36 @@
             android:gravity="center"
             android:layout_height="170dp">
             <ImageView
-                android:id="@+id/event_card_image"
+                android:id="@+id/event_tile_image"
                 android:layout_width="140dp"
                 android:layout_height="170dp"
                 android:foreground="#3f3f3f"/>
             <TextView
-                android:id="@+id/event_card_title"
+                android:id="@+id/event_tile_title"
                 android:text="Event Title"
                 style="@style/Base.TextAppearance.AppCompat.Title"
-                android:layout_toRightOf="@+id/event_card_image"
+                android:layout_toRightOf="@+id/event_tile_image"
                 android:layout_marginTop="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
-                android:id="@+id/event_card_rel_time"
+                android:id="@+id/event_tile_rel_time"
                 android:text="few decades ago"
-                android:layout_toRightOf="@id/event_card_image"
-                android:layout_below="@+id/event_card_title"
+                android:layout_toRightOf="@id/event_tile_image"
+                android:layout_below="@+id/event_tile_title"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.AppCompat.Small"/>
             <TextView
-                android:id="@+id/event_card_description"
+                android:id="@+id/event_tile_description"
                 android:text="fn kadfn dafks kjdafsl adkflkadnflj  ;akldfn lkadfn kafsndl akldfn kadfn dafks kjdafsl adkflkadnflj "
                 android:maxLines="3"
                 android:ellipsize="end"
-                android:layout_toRightOf="@id/event_card_image"
-                android:layout_below="@+id/event_card_rel_time"
+                android:layout_toRightOf="@id/event_tile_image"
+                android:layout_below="@+id/event_tile_rel_time"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
@@ -45,18 +45,18 @@
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.AppCompat.Body1"/>
             <ImageView
-                android:id="@+id/event_card_heart_toggle"
+                android:id="@+id/event_tile_heart_toggle"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_toRightOf="@id/event_card_image"
+                android:layout_toRightOf="@id/event_tile_image"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="16dp"
                 android:src="@mipmap/heart_unchecked"
                 android:layout_alignParentBottom="true"/>
             <TextView
-                android:id="@+id/event_card_hearts"
-                android:layout_below="@+id/event_card_description"
-                android:layout_toRightOf="@id/event_card_heart_toggle"
+                android:id="@+id/event_tile_hearts"
+                android:layout_below="@+id/event_tile_description"
+                android:layout_toRightOf="@id/event_tile_heart_toggle"
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="8dp"
                 android:textColor="#a0ff0000"
@@ -65,19 +65,19 @@
                 android:layout_height="wrap_content"
                 />
             <ImageView
-                android:id="@+id/event_card_comment"
+                android:id="@+id/event_tile_comment"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_toRightOf="@id/event_card_hearts"
+                android:layout_toRightOf="@id/event_tile_hearts"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="16dp"
                 android:paddingTop="5dp"
                 android:src="@mipmap/ic_comments"
                 android:layout_alignParentBottom="true"/>
             <TextView
-                android:id="@+id/event_card_comments_count"
-                android:layout_below="@+id/event_card_description"
-                android:layout_toRightOf="@id/event_card_comment"
+                android:id="@+id/event_tile_comments_count"
+                android:layout_below="@+id/event_tile_description"
+                android:layout_toRightOf="@id/event_tile_comment"
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="8dp"
                 android:textColor="#159EFF"
@@ -87,7 +87,7 @@
                 />
 
             <ImageView
-                android:id="@+id/event_card_overflow"
+                android:id="@+id/event_tile_overflow"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
