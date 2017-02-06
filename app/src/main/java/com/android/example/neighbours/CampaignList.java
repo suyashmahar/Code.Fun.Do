@@ -95,7 +95,7 @@ public class CampaignList extends AppCompatActivity implements ClickListener{
         TextView date=(TextView)view.findViewById(R.id.campaign_tile_rel_time);
         TextView hearts=(TextView)view.findViewById(R.id.campaign_tile_total_fund);
 
-        Intent i=new Intent(CampaignList.this,EventDetail.class);
+        Intent i=new Intent(CampaignList.this,CampaignDetail.class);
 
         i.putExtra("CampaignName",title.getText().toString());
         i.putExtra("CampaignDescription",description.getText().toString());
