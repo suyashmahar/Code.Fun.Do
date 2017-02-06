@@ -31,6 +31,7 @@ public class Uploader {
     public static final String NOTIFICATIONS = "notifications";
 
     Context context;
+
     public static int eventCount;
     public static int campaignCount;
     public static int complaintsCount;

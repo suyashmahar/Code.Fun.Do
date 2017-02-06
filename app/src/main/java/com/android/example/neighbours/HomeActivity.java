@@ -57,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView eventsRecyclerView;
     RecyclerView campaignRecyclerView;
     RecyclerView notificationRecyclerView;
+    RecyclerView complaintsRecyclerView;
     int campaignCount = 1;
 
     @Override
@@ -68,6 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         populateEvents();
         populateCampaigns();
         populateNotifications();
+        populateComplaints();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -238,6 +240,47 @@ public class HomeActivity extends AppCompatActivity {
 
                 MainActivityNotificationAdapter notificationAdapter = new MainActivityNotificationAdapter(notificationList);
                 notificationRecyclerView.setAdapter(notificationAdapter);
+                notificationAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+    }
+
+    public void populateComplaints(){
+        // Get a reference to our posts
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("commuities/sample_community/compaints");
+
+        complaintsRecyclerView = (RecyclerView) findViewById(R.id.activity_home_complaints_recycler);
+        LinearLayoutManager eventLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        complaintsRecyclerView .setLayoutManager(eventLayoutManager);
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<Map> post = (ArrayList<Map>) dataSnapshot.getValue();
+                // TODO fix this mess
+                List<ComplaintsItem> notificationList = new ArrayList<ComplaintsItem>();
+
+                int complaintsCount = 0;
+                for (Map<String, String> complaints : post){
+                    if (complaintsCount < 5) {
+                        notificationList.add(new ComplaintsItem(complaints.get("description"),
+                                complaints.get("time"),
+                                complaints.get("title"),
+                                complaints.get("by_user")
+                        ));
+                    } else {
+                        break;
+                    }
+                }
+
+                MainActivityNotificationAdapter notificationAdapter = new MainActivityNotificationAdapter();
+                complaintsRecyclerView.setAdapter(notificationAdapter);
                 notificationAdapter.notifyDataSetChanged();
             }
 
