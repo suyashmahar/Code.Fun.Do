@@ -15,7 +15,7 @@ public class Campaign {
 
     public Campaign(String description, String fundsProgress, String id, String title, String totalFunds, String funds) {
         this.description = description;
-        FundsProgress = fundsProgress;
+        this.fundsProgress = fundsProgress;
         this.id = id;
         this.title = title;
         this.totalFunds = totalFunds;
@@ -47,11 +47,11 @@ public class Campaign {
     }
 
     public String getFundsProgress() {
-        return FundsProgress;
+        return fundsProgress;
     }
 
     public void setFundsProgress(String fundsProgress) {
-        FundsProgress = fundsProgress;
+        this.fundsProgress = fundsProgress;
     }
 
     public String getId() {

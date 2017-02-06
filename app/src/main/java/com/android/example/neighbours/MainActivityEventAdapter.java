@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,18 +22,39 @@ import static android.R.attr.onClick;
 public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityEventAdapter.MoviesViewHolder> {
     private List<Events> events = new ArrayList<Events>();
 
+    private ClickListener clickListener=null;
+
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
     public class MoviesViewHolder extends RecyclerView.ViewHolder{
         public TextView title, relTime, description, commentsCount, hearts;
         public ImageView image;
+        public RelativeLayout relativeLayout;
 
         public MoviesViewHolder(View view){
             super(view);
+            relativeLayout=(RelativeLayout)view.findViewById(R.id.event_card_layout);
             title = (TextView) view.findViewById(R.id.event_card_title);
             relTime = (TextView) view.findViewById(R.id.event_card_rel_time);
             description = (TextView) view.findViewById(R.id.event_card_description);
             commentsCount = (TextView) view.findViewById(R.id.event_card_comments_count);
             hearts = (TextView) view.findViewById(R.id.event_card_hearts);
+
             image = (ImageView) view.findViewById(R.id.event_card_image);
+
+            relativeLayout.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            if (clickListener != null) {
+                                                clickListener.itemClicked(v, getAdapterPosition());
+                                            }
+                                        }
+                                    }
+            );
+
+
         }
     }
 
