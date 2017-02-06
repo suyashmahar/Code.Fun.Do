@@ -16,13 +16,13 @@
         style="@style/Base.TextAppearance.AppCompat.Title"
         android:text="Flat Members"
         android:layout_marginBottom="16dp"/>
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/flat_members_list"
         android:layout_below="@+id/txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+    </ListView>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/flat_member_add"
         android:layout_width="wrap_content"

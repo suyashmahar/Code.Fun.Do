@@ -23,5 +23,9 @@ public class MyFlatMembers extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        BackgroundTask backgroundTask=new BackgroundTask(this);
+        backgroundTask.execute("get_member_info");
+
     }
 }

@@ -11,11 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainPage"
@@ -30,12 +26,20 @@
         <activity android:name=".Testing" />
         <activity android:name=".CreateCampaign" />
         <activity android:name=".MyFlat" />
-        <activity android:name=".MyFlatMembers" />
+        <activity android:name=".MyFlatMembers" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".MyFlatVehicles" />
         <activity android:name=".MyFlatStaff" />
         <activity android:name=".AddFlatVehicle" />
         <activity android:name=".AddFlatStaff" />
-        <activity android:name=".AddFlatMember"></activity>
+        <activity android:name=".AddFlatMember">
+
+        </activity>
     </application>
 
 </manifest>
