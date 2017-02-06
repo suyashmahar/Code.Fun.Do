@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,17 +20,32 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
 {
     private List<NotificationItem> notifications = new ArrayList<NotificationItem>();
 
+    private ClickListener clickListener=null;
+
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
     public class MoviesViewHolder extends RecyclerView.ViewHolder{
         public TextView title, relTime, description, totalFunds;
         ProgressBar notificationProgress;
-
+        RelativeLayout main;
         public ImageView image;
 
         public MoviesViewHolder(View view){
             super(view);
+            main=(RelativeLayout)view.findViewById(R.id.notification_tile_view);
             title = (TextView) view.findViewById(R.id.notification_tile_title);
             relTime = (TextView) view.findViewById(R.id.notification_tile_date);
             description = (TextView) view.findViewById(R.id.notification_tile_description);
+            main.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clickListener != null) {
+                        clickListener.itemClicked(v, getAdapterPosition());
+                    }
+                }
+            });
         }
     }
 

@@ -2,6 +2,7 @@ package com.android.example.neighbours;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
@@ -110,7 +111,17 @@ public class HomeActivity extends AppCompatActivity {
             */
             }
         });
+        Button moreNoticesButton =(Button)findViewById(R.id.activity_home_more_notice_button);
+       moreNoticesButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent newIntent = new Intent(v.getContext(), NotificationList.class );
+               startActivity(newIntent);
+           }
+       });
     }
+
+
 
     public void populateEvents(){
         // Get a reference to our posts

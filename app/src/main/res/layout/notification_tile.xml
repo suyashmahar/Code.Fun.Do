@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/event_tile_view"
+    android:id="@+id/notification_tile_view"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     android:layout_marginTop="4dp"
+    android:layout_marginLeft="8dp"
+    android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">

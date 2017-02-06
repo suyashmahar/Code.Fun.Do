@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,19 +21,34 @@ import static android.R.attr.onClick;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MoviesViewHolder> {
     private List<Events> events = new ArrayList<Events>();
+    private ClickListener clickListener=null;
 
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
     public class MoviesViewHolder extends RecyclerView.ViewHolder{
         public TextView title, relTime, description, commentsCount, hearts;
         public ImageView image;
+        public RelativeLayout main;
 
         public MoviesViewHolder(View view){
             super(view);
+            main=(RelativeLayout)view.findViewById(R.id.event_tile_view);
             title = (TextView) view.findViewById(R.id.event_tile_title);
             relTime = (TextView) view.findViewById(R.id.event_tile_rel_time);
             description = (TextView) view.findViewById(R.id.event_tile_description);
             commentsCount = (TextView) view.findViewById(R.id.event_tile_comments_count);
             hearts = (TextView) view.findViewById(R.id.event_tile_hearts);
 
+            main.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            if (clickListener != null) {
+                                                clickListener.itemClicked(v, getAdapterPosition());
+                                            }
+                                        }
+                                    }
+            );
         }
     }
 

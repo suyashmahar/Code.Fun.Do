@@ -25,20 +25,13 @@ public class EventDetail extends AppCompatActivity {
 
         Bundle extras=getIntent().getExtras();
         if(extras!=null){
-            String image=extras.getString("EventImage");
             String eventName=extras.getString("EventName");
             String eventHearts=extras.getString("EventHearts");
             String eventComments=extras.getString("EventComments");
             String eventTime=extras.getString("EventTime");
             String eventDescription=extras.getString("EventDescription");
             String encodedImage;
-            try{
-                encodedImage=convertToBase64(image);
-                eventDetailImage.setImageResource(Integer.parseInt(encodedImage));
-            }
-            catch (Exception e){
 
-            }
 
             eventDetailEventName.setText(eventName);
             eventDetailHearts.setText(eventHearts);

@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class CampaignList extends AppCompatActivity {
+public class CampaignList extends AppCompatActivity implements ClickListener{
     RecyclerView campaignRecyclerView;
 
     @Override
@@ -72,8 +74,9 @@ public class CampaignList extends AppCompatActivity {
                     }
                 }
 
-                MainActivityCampaignAdapter campaignAdapter = new MainActivityCampaignAdapter(campaignList);
+               CampaignListAdapter campaignAdapter = new CampaignListAdapter(campaignList);
                 campaignRecyclerView.setAdapter(campaignAdapter);
+                campaignAdapter.setClickListener(CampaignList.this);
                 campaignAdapter.notifyDataSetChanged();
             }
 
@@ -84,4 +87,20 @@ public class CampaignList extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void itemClicked(View view, int position) {
+        ImageView img=(ImageView)view.findViewById(R.id.campaign_tile_image);
+        TextView title=(TextView)view.findViewById(R.id.campaign_tile_title);
+        TextView description=(TextView)view.findViewById(R.id.campaign_tile_description);
+        TextView date=(TextView)view.findViewById(R.id.campaign_tile_rel_time);
+        TextView hearts=(TextView)view.findViewById(R.id.campaign_tile_total_fund);
+
+        Intent i=new Intent(CampaignList.this,EventDetail.class);
+
+        i.putExtra("CampaignName",title.toString());
+        i.putExtra("CampaignDescription",description.toString());
+        i.putExtra("CampaignTime",date.toString());
+        i.putExtra("CampaignFund",hearts.toString());
+        startActivity(i);
+    }
 }

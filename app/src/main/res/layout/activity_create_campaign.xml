@@ -123,7 +123,6 @@
                 android:id="@+id/create_campaign_venue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Base.TextAppearance.AppCompat.Title"
                 android:hint="Venue" />
 
         </LinearLayout>
@@ -154,7 +153,6 @@
                 android:id="@+id/create_campaign_guests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Base.TextAppearance.AppCompat.Title"
                 android:hint="Special Guests" />
 
         </LinearLayout>
@@ -185,7 +183,6 @@
                 android:id="@+id/create_campaign_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Base.TextAppearance.AppCompat.Title"
                 android:hint="Event Description" />
 
         </LinearLayout>
@@ -221,7 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Attaching a photo helps everyone understand issue better"/>
+            android:text="Attaching a photo helps all understand issue better"/>
     </LinearLayout>
     <ImageView
         android:id="@+id/campaign_image"

@@ -1,4 +1,4 @@
-// CampaignImage,CampaignName,CampaignHearts,CampaignComments,CampaignTime,CampaignDescription
+// CampaignImage,CampaignName,CampaignFund,CampaignTime,CampaignDescription
 
 package com.android.example.neighbours;
 
@@ -27,19 +27,11 @@ TextView campaignDetailEventName,campaignDetailFund,campaignDetailTime,campaignD
 
         Bundle extras=getIntent().getExtras();
         if(extras!=null){
-            String image=extras.getString("CampaignImage");
+
             String campaignName=extras.getString("CampaignName");
             String campaignFund=extras.getString("CampaignFund");
             String campaignTime=extras.getString("CampaignTime");
             String campaignDescription=extras.getString("CampaignDescription");
-            String encodedImage;
-            try{
-                encodedImage=convertToBase64(image);
-                campaignDetailImage.setImageResource(Integer.parseInt(encodedImage));
-            }
-            catch (Exception e){
-
-            }
 
             campaignDetailEventName.setText(campaignName);
             campaignDetailFund.setText(campaignFund);
