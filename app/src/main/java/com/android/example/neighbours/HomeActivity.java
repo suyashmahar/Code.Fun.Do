@@ -79,14 +79,35 @@ public class HomeActivity extends AppCompatActivity {
             */
             }
         });
+        Button moreNotificationButton = (Button)findViewById(R.id.activity_home_more_notice_button);
+        moreNotificationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent newIntent = new Intent(view.getContext(), NotificationList.class );
+                startActivity(newIntent);
+                /*
+                Uploader uploader = new Uploader(getApplicationContext());
+                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+
+                final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
+                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+                ref.setValue(eventToAdd);
+                campaignCount++;
+
+                uploader.createAndPushEvent(eventToAdd);
+            */
+            }
+        });
         Button moreNoticesButton =(Button)findViewById(R.id.activity_home_more_notice_button);
-       moreNoticesButton.setOnClickListener(new View.OnClickListener() {
+        moreNoticesButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
                Intent newIntent = new Intent(v.getContext(), NotificationList.class );
                startActivity(newIntent);
            }
-       });
+        });
     }
 
 
@@ -224,19 +245,19 @@ public class HomeActivity extends AppCompatActivity {
 
         complaintsRecyclerView = (RecyclerView) findViewById(R.id.activity_home_complaints_recycler);
         LinearLayoutManager eventLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        complaintsRecyclerView .setLayoutManager(eventLayoutManager);
+        complaintsRecyclerView.setLayoutManager(eventLayoutManager);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<Map> post = (ArrayList<Map>) dataSnapshot.getValue();
                 // TODO fix this mess
-                List<ComplaintsItem> notificationList = new ArrayList<ComplaintsItem>();
+                List<ComplaintsItem> complaintsList = new ArrayList<ComplaintsItem>();
 
                 int complaintsCount = 0;
                 for (Map<String, String> complaints : post){
                     if (complaintsCount < 5) {
-                        notificationList.add(new ComplaintsItem(
+                        complaintsList.add(new ComplaintsItem(
                                 complaints.get("by_user"),
                                 complaints.get("description"),
                                 complaints.get("time"),
@@ -247,7 +268,7 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }
 
-                MainActivityNotificationAdapter notificationAdapter = new MainActivityNotificationAdapter();
+                MainActivityComplaintsAdapter notificationAdapter = new MainActivityComplaintsAdapter(complaintsList);
                 complaintsRecyclerView.setAdapter(notificationAdapter);
                 notificationAdapter.notifyDataSetChanged();
             }
@@ -257,6 +278,8 @@ public class HomeActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
+
+        Toast.makeText(this, "fetching data from server", Toast.LENGTH_LONG).show();
     }
 
 }

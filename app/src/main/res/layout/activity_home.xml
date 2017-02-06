@@ -142,7 +142,7 @@
                 android:id="@+id/activity_home_more_complaints_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/activity_home_campaign_recycler"
+                android:layout_below="@+id/activity_home_notice_recycler"
                 android:layout_marginTop="8dp"
                 android:text="more"
                 android:layout_alignParentRight="true"

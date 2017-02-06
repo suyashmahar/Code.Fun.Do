@@ -56,6 +56,8 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
         attachPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Intent i = new Intent(
                         Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -71,8 +73,15 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                eventName=(EditText)findViewById(R.id.create_event_title);
+                eventVenue=(EditText)findViewById(R.id.create_event_venue);
+                eventGuests=(EditText)findViewById(R.id.create_event_guests);
+                eventDescription=(EditText)findViewById(R.id.create_event_description);
+
                 Uploader uploader = new Uploader(getApplicationContext());
-                uploader.createAndPushEvent(new Events(desc, "a1", "sample_image", "comm","sample", "12:00", title, "100k"));
+                uploader.createAndPushEvent(new Events(eventDescription.getText().toString(), "a1", "sample_image", "comm","sample", "12:00", eventName.getText().toString(), "100k"));
             }
         });
     }
