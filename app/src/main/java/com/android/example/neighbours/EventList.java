@@ -104,11 +104,11 @@ public class EventList extends AppCompatActivity implements ClickListener{
 
         Intent i=new Intent(EventList.this,EventDetail.class);
 
-        i.putExtra("EventName",title.toString());
-        i.putExtra("EventDescription",description.toString());
-        i.putExtra("EventTime",date.toString());
-        i.putExtra("EventHearts",hearts.toString());
-        i.putExtra("EventComments",comments.toString());
+        i.putExtra("EventName",title.getText().toString());
+        i.putExtra("EventDescription",description.getText().toString());
+        i.putExtra("EventTime",date.getText().toString());
+        i.putExtra("EventHearts",hearts.getText().toString());
+        i.putExtra("EventComments",comments.getText().toString());
         startActivity(i);
     }
 }
