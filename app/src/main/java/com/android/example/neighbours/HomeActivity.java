@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,12 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements ClickListener{
     RecyclerView eventsRecyclerView;
     RecyclerView campaignRecyclerView;
     RecyclerView notificationRecyclerView;
     RecyclerView complaintsRecyclerView;
     int campaignCount = 1;
+    private ClickListener clickListener=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -99,14 +102,13 @@ public class HomeActivity extends AppCompatActivity {
             */
             }
         });
-        Button moreNoticesButton =(Button)findViewById(R.id.activity_home_more_notice_button);
-        moreNoticesButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
-               Intent newIntent = new Intent(v.getContext(), NotificationList.class );
-               startActivity(newIntent);
-           }
+        Button moreCoplaintButton=(Button)findViewById(R.id.activity_home_more_complaints_button);
+        moreCoplaintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(v.getContext(),ComplaintList.class);
+                startActivity(i);
+            }
         });
     }
 
@@ -147,6 +149,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 MainActivityEventAdapter eventAdapter = new MainActivityEventAdapter(eventList);
                 eventsRecyclerView.setAdapter(eventAdapter);
+                eventAdapter.setClickListener(HomeActivity.this);
                 eventAdapter.notifyDataSetChanged();
             }
 
@@ -188,6 +191,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 MainActivityCampaignAdapter campaignAdapter = new MainActivityCampaignAdapter(campaignList);
                 campaignRecyclerView.setAdapter(campaignAdapter);
+                campaignAdapter.setClickListener(HomeActivity.this);
                 campaignAdapter.notifyDataSetChanged();
             }
 
@@ -227,6 +231,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 MainActivityNotificationAdapter notificationAdapter = new MainActivityNotificationAdapter(notificationList);
                 notificationRecyclerView.setAdapter(notificationAdapter);
+                notificationAdapter.setClickListener(HomeActivity.this);
                 notificationAdapter.notifyDataSetChanged();
             }
 
@@ -270,6 +275,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 MainActivityComplaintsAdapter notificationAdapter = new MainActivityComplaintsAdapter(complaintsList);
                 complaintsRecyclerView.setAdapter(notificationAdapter);
+
                 notificationAdapter.notifyDataSetChanged();
             }
 
@@ -282,4 +288,53 @@ public class HomeActivity extends AppCompatActivity {
         Toast.makeText(this, "fetching data from server", Toast.LENGTH_LONG).show();
     }
 
+
+    @Override
+    public void itemClicked(View view, int position) {
+        if(view == notificationRecyclerView){
+            TextView title=(TextView)view.findViewById(R.id.notification_card_title);
+            TextView date=(TextView)view.findViewById(R.id.notification_card_date);
+            TextView description=(TextView)view.findViewById(R.id.notification_card_description);
+            Intent i=new Intent(HomeActivity.this,NotificationDetail.class);
+
+            i.putExtra("NotificationTitle",title.getText().toString());
+            i.putExtra("NotificationDescription",description.getText().toString());
+            i.putExtra("NotificationTime",date.getText().toString());
+
+            startActivity(i);
+        }
+        if(view==eventsRecyclerView){
+            ImageView img=(ImageView)view.findViewById(R.id.event_card_image);
+            TextView title=(TextView)view.findViewById(R.id.event_card_title);
+            TextView description=(TextView)view.findViewById(R.id.event_card_description);
+            TextView date=(TextView)view.findViewById(R.id.event_card_rel_time);
+            TextView hearts=(TextView)view.findViewById(R.id.event_card_hearts);
+            TextView comments=(TextView)view.findViewById(R.id.event_card_comments_count);
+
+            Intent i=new Intent(HomeActivity.this,EventDetail.class);
+
+            i.putExtra("EventName",title.getText().toString());
+            i.putExtra("EventDescription",description.getText().toString());
+            i.putExtra("EventTime",date.getText().toString());
+            i.putExtra("EventHearts",hearts.getText().toString());
+            i.putExtra("EventComments",comments.getText().toString());
+            startActivity(i);
+        }
+        if(view==campaignRecyclerView){
+            ImageView img=(ImageView)view.findViewById(R.id.campaign_tile_image);
+            TextView title=(TextView)view.findViewById(R.id.campaign_tile_title);
+            TextView description=(TextView)view.findViewById(R.id.campaign_tile_description);
+            TextView date=(TextView)view.findViewById(R.id.campaign_tile_rel_time);
+            TextView hearts=(TextView)view.findViewById(R.id.campaign_tile_total_fund);
+
+            Intent i=new Intent(HomeActivity.this,CampaignDetail.class);
+
+            i.putExtra("CampaignName",title.getText().toString());
+            i.putExtra("CampaignDescription",description.getText().toString());
+            i.putExtra("CampaignTime",date.getText().toString());
+            i.putExtra("CampaignFund",hearts.getText().toString());
+            startActivity(i);
+
+        }
+    }
 }
