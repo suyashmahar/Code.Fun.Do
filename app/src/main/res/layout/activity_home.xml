@@ -105,7 +105,7 @@
                 android:id="@+id/activity_home_more_notice_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/activity_home_notice_recycler"
+                android:layout_below="@+id/activity_home_campaign_recycler"
                 android:layout_marginTop="8dp"
                 android:text="more"
                 android:layout_alignParentRight="true"
@@ -116,6 +116,43 @@
                 android:id="@+id/activity_home_notice_recycler"
                 android:layout_marginTop="8dp"
                 android:layout_below="@id/activity_home_notice_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/activity_home_complaints_title"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_home_notice_recycler"
+                android:text="Complaints"
+                style="@style/TextAppearance.AppCompat.Title"
+                />
+            <TextView
+                android:id="@+id/activity_home_complaints_subtitle"
+                android:layout_below="@+id/activity_home_complaints_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recent complaints in your community"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                />
+            <Button
+                android:id="@+id/activity_home_more_complaints_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_home_campaign_recycler"
+                android:layout_marginTop="8dp"
+                android:text="more"
+                android:layout_alignParentRight="true"
+                android:backgroundTint="@color/colorPrimary"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:textColor="@color/colorPrimary"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_home_complaints_recycler"
+                android:layout_marginTop="8dp"
+                android:layout_below="@id/activity_home_complaints_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
