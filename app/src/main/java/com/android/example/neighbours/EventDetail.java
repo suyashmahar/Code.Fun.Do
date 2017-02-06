@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static com.android.example.neighbours.ImageTo64BitString.convertToBase64;
 
 public class EventDetail extends AppCompatActivity {
     ImageView eventDetailImage;
@@ -22,6 +21,7 @@ public class EventDetail extends AppCompatActivity {
         eventDetailComments=(TextView)findViewById(R.id.event_detail_comments_count);
         eventDetailTime=(TextView)findViewById(R.id.event_detail_rel_time);
         eventDetailDescription=(TextView)findViewById(R.id.event_detail_description);
+
 
         Bundle extras=getIntent().getExtras();
         if(extras!=null){

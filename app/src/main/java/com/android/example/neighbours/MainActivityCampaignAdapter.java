@@ -38,8 +38,8 @@ public RelativeLayout relativeLayout;
             title = (TextView) view.findViewById(R.id.campaign_card_title);
             relTime = (TextView) view.findViewById(R.id.campaign_card_rel_time);
             description = (TextView) view.findViewById(R.id.campaign_card_description);
-            campaignProgress = (ProgressBar) view.findViewById(R.id.campaign_card_progress_bar);
             totalFunds = (TextView) view.findViewById(R.id.campaign_card_total_fund);
+            campaignProgress = (ProgressBar) view.findViewById(R.id.campaign_card_progress_bar);
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -83,7 +83,8 @@ public RelativeLayout relativeLayout;
         holder.description.setText(campaign.getDescription());
         holder.relTime.setText(campaign.getTime());
         holder.totalFunds.setText(campaign.getTotalFunds());
-        //holder.image.getImage(campaign.getDescription());
+        holder.campaignProgress.setMax(100);
+        holder.campaignProgress.setProgress((int)((Integer.parseInt(campaign.getFunds())/(float)Integer.parseInt(campaign.getTotalFunds()))*100));
     }
 
     @Override

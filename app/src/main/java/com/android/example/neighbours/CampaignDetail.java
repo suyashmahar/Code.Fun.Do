@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static com.android.example.neighbours.ImageTo64BitString.convertToBase64;
-
 public class CampaignDetail extends AppCompatActivity {
 
 ImageView campaignDetailImage;

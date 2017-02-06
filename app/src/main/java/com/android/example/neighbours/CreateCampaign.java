@@ -81,7 +81,7 @@ public class CreateCampaign extends AppCompatActivity implements View.OnClickLis
 
                 String latest_time=date.getText().toString()+";"+time.getText().toString();
                  Uploader uploader=new Uploader((getApplicationContext()));
-                //Events events=new Events(campaignDescription.toString(),"a1","sample_image","sample_community","sample_user",latest_time,campaignName.toString(),"sample_votes");
+                //Events events=new Events(campaignDescription.toString(),"a1","sample_image","sample_community","sample_user",latest
                 Campaign campaign = new Campaign(campaignDescription.getText().toString(),"sample funds","sample id",campaignName.getText().toString(),"sample total funds");
                 uploader.createAndPushCampaign(campaign);
                 Toast.makeText(getApplicationContext(), "Campaign created", Toast.LENGTH_LONG).show();
@@ -90,10 +90,6 @@ public class CreateCampaign extends AppCompatActivity implements View.OnClickLis
         });
 
     }
-
-
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -42,6 +42,8 @@ public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityE
             commentsCount = (TextView) view.findViewById(R.id.event_card_comments_count);
             hearts = (TextView) view.findViewById(R.id.event_card_hearts);
 
+            image = (ImageView) view.findViewById(R.id.event_card_image);
+
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
@@ -52,13 +54,13 @@ public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityE
                                     }
             );
 
+
         }
     }
 
     public MainActivityEventAdapter(List<Events> events){
         this.events = events;
     }
-
 
     public MainActivityEventAdapter(){
         this.events = events;
@@ -87,12 +89,15 @@ public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityE
         holder.description.setText(event.getDescription());
         holder.hearts.setText(event.getVotes());
         holder.commentsCount.setText("100");
-        //holder.image.getImage(event.getDescription());
+        try {
+            holder.image.setImageBitmap(ImageConverter.toBitmap(event.getImage()));
+        } catch (Exception e){
+            holder.image.setImageResource(R.mipmap.ic_event_demo_picture);
+        }
     }
 
     @Override
     public int getItemCount(){
         return events.size();
     }
-
 }
