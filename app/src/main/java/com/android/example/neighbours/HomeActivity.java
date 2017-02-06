@@ -1,57 +1,20 @@
 package com.android.example.neighbours;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Notification;
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-
-import com.google.common.util.concurrent.FutureCallback;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.SettableFuture;
+import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-import com.microsoft.windowsazure.mobileservices.http.NextServiceFilterCallback;
-import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
-import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
-import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
-import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
-import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
-import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
-import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
-import com.microsoft.windowsazure.mobileservices.table.sync.localstore.MobileServiceLocalStoreException;
-import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
-import com.microsoft.windowsazure.mobileservices.table.sync.synchandler.SimpleSyncHandler;
-import com.squareup.okhttp.OkHttpClient;
-
-import java.net.MalformedURLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-
-import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
 public class HomeActivity extends AppCompatActivity {
     RecyclerView eventsRecyclerView;
@@ -66,10 +29,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        populateEvents();
-        populateCampaigns();
-        populateNotifications();
-        populateComplaints();
+        try {
+            populateEvents();
+            populateCampaigns();
+            populateNotifications();
+            populateComplaints();
+        } catch (Exception e){
+            Toast.makeText(this, "Error fetching data from server", Toast.LENGTH_LONG).show();
+        }
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -253,7 +220,7 @@ public class HomeActivity extends AppCompatActivity {
     public void populateComplaints(){
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("commuities/sample_community/compaints");
+        DatabaseReference ref = database.getReference("commuities/sample_community/complaints");
 
         complaintsRecyclerView = (RecyclerView) findViewById(R.id.activity_home_complaints_recycler);
         LinearLayoutManager eventLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -269,10 +236,11 @@ public class HomeActivity extends AppCompatActivity {
                 int complaintsCount = 0;
                 for (Map<String, String> complaints : post){
                     if (complaintsCount < 5) {
-                        notificationList.add(new ComplaintsItem(complaints.get("description"),
+                        notificationList.add(new ComplaintsItem(
+                                complaints.get("by_user"),
+                                complaints.get("description"),
                                 complaints.get("time"),
-                                complaints.get("title"),
-                                complaints.get("by_user")
+                                complaints.get("title")
                         ));
                     } else {
                         break;

@@ -1,6 +1,11 @@
 package com.android.example.neighbours;
 
+
+/**
+ * Created by Suyash on 31-01-2017.
+ */
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,45 +20,36 @@ import java.util.List;
 
 import static android.R.attr.onClick;
 
-/**
- * Created by Suyash on 31-01-2017.
- */
-
 public class MainActivityComplaintsAdapter extends RecyclerView.Adapter<MainActivityComplaintsAdapter.MoviesViewHolder> {
-    private List<ComplaintsItem> complaint = new ArrayList<ComplaintsItem>();
+    private List<ComplaintsItem> complaints = new ArrayList<ComplaintsItem>();
 
     public class MoviesViewHolder extends RecyclerView.ViewHolder{
-        public TextView title, relTime, description, totalFunds;
-        ProgressBar complaintsProgress;
+        public TextView title, relTime, description, byUser;
 
         public ImageView image;
 
         public MoviesViewHolder(View view){
             super(view);
-            title = (TextView) view.findViewById(R.id.complaints_card_title);
-            relTime = (TextView) view.findViewById(R.id.complaints_card_rel_time);
-            description = (TextView) view.findViewById(R.id.complaints_card_description);
-            complaintsProgress = (ProgressBar) view.findViewById(R.id.complaints_card_progress_bar);
-            totalFunds = (TextView) view.findViewById(R.id.complaints_card_total_fund);
+            title = (TextView) view.findViewById(R.id.complaint_card_title);
+            relTime = (TextView) view.findViewById(R.id.complaint_card_date);
+            description = (TextView) view.findViewById(R.id.complaint_card_description);
+            byUser = (TextView) view.findViewById(R.id.complaint_card_sender);
         }
     }
 
-    public MainActivityComplaintsItemAdapter(List<ComplaintsItem> complaint){
-        this.complaint = complaint;
+    public MainActivityComplaintsAdapter(List<ComplaintsItem> complaint){
+        this.complaints = complaint;
     }
 
-
-    public MainActivityComplaintsItemAdapter(){
-        this.complaint = complaint;
-    }
 
     public void setList(List<ComplaintsItem> complaint){
-        this.complaint = complaint;
+        this.complaints = complaint;
     }
+
     @Override
     public MoviesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View itemView  = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.complaints_card, parent, false);
+                .inflate(R.layout.complaint_card, parent, false);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,17 +61,16 @@ public class MainActivityComplaintsAdapter extends RecyclerView.Adapter<MainActi
 
     @Override
     public void onBindViewHolder(MoviesViewHolder holder, int position){
-        ComplaintsItem complaints = complaint.get(position);
-        holder.title.setText(complaints.getTitle());
-        holder.description.setText(complaints.getDescription());
-        holder.relTime.setText(complaints.getTime());
-        holder.totalFunds.setText(complaints.getTotalFunds());
-        //holder.image.getImage(complaints.getDescription());
+        ComplaintsItem complaint = complaints.get(position);
+        holder.title.setText(complaint.getTitle());
+        holder.description.setText(complaint.getDescription());
+        holder.relTime.setText(complaint.getTime());
+        holder.byUser.setText(complaint.getByUser());
     }
 
     @Override
     public int getItemCount(){
-        return complaint.size();
+        return complaints.size();
     }
 
 }
