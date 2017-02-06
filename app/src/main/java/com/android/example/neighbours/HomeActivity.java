@@ -104,12 +104,13 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
         });
         Button moreNoticesButton =(Button)findViewById(R.id.activity_home_more_notice_button);
         moreNoticesButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               //Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
-               Intent newIntent = new Intent(v.getContext(), NotificationList.class );
-               startActivity(newIntent);
-           }
+                                                 @Override
+                                                 public void onClick(View v) {
+                                                     //Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
+                                                     Intent newIntent = new Intent(v.getContext(), NotificationList.class);
+                                                     startActivity(newIntent);
+                                                 }
+                                             });
         Button moreCoplaintButton=(Button)findViewById(R.id.activity_home_more_complaints_button);
         moreCoplaintButton.setOnClickListener(new View.OnClickListener() {
             @Override
