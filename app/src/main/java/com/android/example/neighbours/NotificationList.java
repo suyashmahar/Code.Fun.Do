@@ -98,9 +98,9 @@ public class NotificationList extends AppCompatActivity implements ClickListener
 
         Intent i=new Intent(NotificationList.this,NotificationDetail.class);
 
-        i.putExtra("NotificationTitle",title.toString());
-        i.putExtra("NotificationDescription",description.toString());
-        i.putExtra("NotificationTime",date.toString());
+        i.putExtra("NotificationTitle",title.getText().toString());
+        i.putExtra("NotificationDescription",description.getText().toString());
+        i.putExtra("NotificationTime",date.getText().toString());
 
         startActivity(i);
     }

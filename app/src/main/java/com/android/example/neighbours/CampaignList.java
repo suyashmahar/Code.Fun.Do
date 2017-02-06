@@ -97,10 +97,10 @@ public class CampaignList extends AppCompatActivity implements ClickListener{
 
         Intent i=new Intent(CampaignList.this,EventDetail.class);
 
-        i.putExtra("CampaignName",title.toString());
-        i.putExtra("CampaignDescription",description.toString());
-        i.putExtra("CampaignTime",date.toString());
-        i.putExtra("CampaignFund",hearts.toString());
+        i.putExtra("CampaignName",title.getText().toString());
+        i.putExtra("CampaignDescription",description.getText().toString());
+        i.putExtra("CampaignTime",date.getText().toString());
+        i.putExtra("CampaignFund",hearts.getText().toString());
         startActivity(i);
     }
 }
