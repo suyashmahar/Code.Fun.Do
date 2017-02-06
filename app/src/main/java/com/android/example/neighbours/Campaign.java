@@ -9,12 +9,12 @@ public class Campaign {
     public String title;
     public String description;
     public String totalFunds;
-    public String FundsProgress;
+    public String fundsProgress;
     public String time;
 
     public Campaign(String description, String fundsProgress, String id, String title, String totalFunds) {
         this.description = description;
-        FundsProgress = fundsProgress;
+        this.fundsProgress = fundsProgress;
         this.id = id;
         this.title = title;
         this.totalFunds = totalFunds;
@@ -37,11 +37,11 @@ public class Campaign {
     }
 
     public String getFundsProgress() {
-        return FundsProgress;
+        return fundsProgress;
     }
 
     public void setFundsProgress(String fundsProgress) {
-        FundsProgress = fundsProgress;
+        this.fundsProgress = fundsProgress;
     }
 
     public String getId() {
