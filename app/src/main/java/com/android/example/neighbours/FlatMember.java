@@ -10,8 +10,8 @@ public class FlatMember {
         public static final String NAME="name";
         public static final String EMAIL="email";
         public static final String PHONE ="phone";
-        public static final String RELATION="relation";
-        public static final String TABLE_NAME="member_table";
+        public static final String RELATION ="relation";
+        public static final String TABLE_NAME ="member_table";
     }
 
 

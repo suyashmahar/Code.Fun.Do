@@ -30,7 +30,7 @@ public class BackgroundTask extends AsyncTask<String,Member,String> {
 
         MemberDbOperations memberDbOperations=new MemberDbOperations(ctx);
 
-        if(method=="add_member_info"){
+        if(method.equals("add_member_info")){
             String name=params[1];
             String phone=params[2];
             String email=params[3];
@@ -41,7 +41,7 @@ public class BackgroundTask extends AsyncTask<String,Member,String> {
 
         }
 
-        else if(method=="get_member_info"){
+        else if(method.equals("get_member_info")){
             listView=(ListView)activity.findViewById(R.id.flat_members_list);
             SQLiteDatabase db=memberDbOperations.getReadableDatabase();
             Cursor cursor=memberDbOperations.getInformation(db);
@@ -77,7 +77,7 @@ public class BackgroundTask extends AsyncTask<String,Member,String> {
 
     @Override
     protected void onPostExecute(String result) {
-        if (result == "get_member_info") {
+        if (result.equals("get_member_info")) {
             listView.setAdapter(memberAdapter);
         } else {
 

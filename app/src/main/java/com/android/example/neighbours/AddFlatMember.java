@@ -21,9 +21,6 @@ public class AddFlatMember extends AppCompatActivity {
         memberEmail=(EditText)findViewById(R.id.add_member_email);
         memberRelation=(EditText)findViewById(R.id.add_member_relation);
 
-
-
-
     }
     public void saveMember(View view){
         membername=memberName.getText().toString();

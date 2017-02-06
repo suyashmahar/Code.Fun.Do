@@ -22,9 +22,7 @@ public class Member {
     public String getEmail(){
         return email;
     }
-    public String getRelation(){
-        return relation;
-    }
+    public String getRelation(){return relation;}
     public void setName(String a){
         this.name=a;
     }

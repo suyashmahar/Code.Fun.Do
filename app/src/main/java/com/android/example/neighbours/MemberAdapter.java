@@ -17,24 +17,24 @@ import java.util.List;
  */
 
 public class MemberAdapter extends ArrayAdapter {
-    List memeberList=new ArrayList();
+    List memberList=new ArrayList();
     public MemberAdapter(Context context, int resource) {
         super(context, resource);
     }
 
     public void add(Member object) {
-        memeberList.add(object);
+        memberList.add(object);
         super.add(object);
     }
 
     @Override
     public int getCount() {
-        return memeberList.size();
+        return memberList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return memeberList.get(position);
+        return memberList.get(position);
     }
 
     @Override
@@ -51,9 +51,11 @@ public class MemberAdapter extends ArrayAdapter {
             memberHolder.txt_member_relation=(TextView)row.findViewById(R.id.flat_member_relation);
             row.setTag(memberHolder);
         }
+
         else{
             memberHolder=(MemberHolder)row.getTag();
         }
+
         Member member=(Member)getItem(position);
         memberHolder.txt_member_name.setText(member.getName().toString());
         memberHolder.txt_member_phone.setText(member.getPhone().toString());
