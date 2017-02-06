@@ -27,7 +27,7 @@ public class Uploader {
 
     public static final String EVENTS = "events";
     public static final String CAMPAIGNS = "campaign";
-    public static final String COMPLAINTS    = "complaints";
+    public static final String COMPLAINTS = "complaints";
     public static final String NOTIFICATIONS = "notifications";
 
     Context context;
@@ -92,10 +92,10 @@ public class Uploader {
         String community = settings.getString("community_name", "sample_community");
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference ref = database.getReference("commuities/" + community + "/campaigns/" + (int)(campaignCount + 1));
+        final DatabaseReference ref = database.getReference("commuities/" + community + "/campaigns/" + (int)(campaignCount));
         ref.setValue(campaign);
         incrementCount(CAMPAIGNS, 1);
-        campaignCount++;
+        //campaignCount++;
         return 1;
     }
 
@@ -104,7 +104,7 @@ public class Uploader {
         String community = settings.getString("community_name", "sample_community");
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference ref = database.getReference("commuities/" + community + "/notifications/" + (int)(campaignCount + 1));
+        final DatabaseReference ref = database.getReference("commuities/" + community + "/notifications/" + (int)(notificationCount + 1));
         ref.setValue(notification);
         incrementCount(NOTIFICATIONS, 1);
         notificationCount++;
@@ -117,7 +117,7 @@ public class Uploader {
         String community = settings.getString("community_name", "sample_community");
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference ref = database.getReference("commuities/" + community + "/complaints/" + (int)(campaignCount + 1));
+        final DatabaseReference ref = database.getReference("commuities/" + community + "/complaints/" + (int)(complaintsCount + 1));
         ref.setValue(complaint);
         incrementCount(COMPLAINTS, 1);
         complaintsCount++;
@@ -128,7 +128,7 @@ public class Uploader {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
-        campaignCount++;
+
 
         DatabaseReference ref;
 
@@ -140,18 +140,18 @@ public class Uploader {
                 break;
             case (EVENTS):
                 ref = database.getReference("commuities/" + community + "/counts/" + countType);
-                ref.setValue(notificationCount + incrementBy);
-                notificationCount += incrementBy; // Though this would be updated ASA server receives data
+                ref.setValue(eventCount + incrementBy);
+                eventCount += incrementBy; // Though this would be updated ASA server receives data
                 break;
             case (CAMPAIGNS):
                 ref = database.getReference("commuities/" + community + "/counts/" + countType);
-                ref.setValue(notificationCount + incrementBy);
-                notificationCount += incrementBy; // Though this would be updated ASA server receives data
+                ref.setValue(campaignCount + incrementBy);
+                //campaignCount += incrementBy; // Though this would be updated ASA server receives data
                 break;
             case (COMPLAINTS):
                 ref = database.getReference("commuities/" + community + "/counts/" + countType);
-                ref.setValue(notificationCount + incrementBy);
-                notificationCount += incrementBy; // Though this would be updated ASA server receives data
+                ref.setValue(complaintsCount + incrementBy);
+                complaintsCount += incrementBy; // Though this would be updated ASA server receives data
                 break;
             default:
                 Log.e("Error", "Invalid countType in Uploader::UpdateCount()");

@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class CreateEvent extends AppCompatActivity implements View.OnClickListener{
 
@@ -82,6 +83,9 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
 
                 Uploader uploader = new Uploader(getApplicationContext());
                 uploader.createAndPushEvent(new Events(eventDescription.getText().toString(), "a1", "sample_image", "comm","sample", "12:00", eventName.getText().toString(), "100k"));
+                Toast.makeText(getApplicationContext(), "Event created", Toast.LENGTH_LONG).show();
+                finish();
+
             }
         });
     }
