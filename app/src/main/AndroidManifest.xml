@@ -10,21 +10,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity
+            android:name=".MainPage"
+            android:label="@string/title_activity_main_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HomeActivity" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity
-            android:name=".MainPage"
-            android:label="@string/title_activity_main_page"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeActivity">
-
-        </activity>
-
         <activity android:name=".EventDetail" />
         <activity android:name=".CampaignDetail" />
         <activity android:name=".ComplaintDetail" />
@@ -35,7 +34,6 @@
         <activity android:name=".Testing" />
         <activity android:name=".CreateCampaign" />
         <activity android:name=".MyFlat" />
-
         <activity
             android:name=".NotificationList"
             android:label="@string/title_activity_notification_list" />
@@ -46,7 +44,11 @@
         <activity
             android:name=".CampaignList"
             android:label="@string/title_activity_campaign_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ComplaintList"
+            android:label="@string/title_activity_complaint_list"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
