@@ -10,7 +10,7 @@ public class Campaign {
     public String description;
     public String totalFunds;
     public String funds;
-    public String FundsProgress;
+    public String fundsProgress;
     public String time;
 
     public Campaign(String description, String fundsProgress, String id, String title, String totalFunds, String funds) {
