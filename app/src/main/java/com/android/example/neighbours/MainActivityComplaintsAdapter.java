@@ -1,6 +1,4 @@
 package com.android.example.neighbours;
-
-
 /**
  * Created by Suyash on 31-01-2017.
  */
@@ -50,6 +48,7 @@ public class MainActivityComplaintsAdapter extends RecyclerView.Adapter<MainActi
     public MoviesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View itemView  = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.complaint_card, parent, false);
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -28,7 +28,6 @@ public class HomeActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         try {
             populateEvents();
             populateCampaigns();
@@ -220,6 +219,7 @@ public class HomeActivity extends AppCompatActivity {
     public void populateComplaints(){
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        
         DatabaseReference ref = database.getReference("commuities/sample_community/complaints");
 
         complaintsRecyclerView = (RecyclerView) findViewById(R.id.activity_home_complaints_recycler);
