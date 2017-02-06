@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateNotification extends AppCompatActivity
 {
@@ -22,8 +23,11 @@ public class CreateNotification extends AppCompatActivity
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Uploader uploader = new Uploader(getApplicationContext());
-                uploader.createAndPushNotification(new NotificationItem((String)detailsTextView.getText(), "12:00", (String)titleTextView.getText()));
+                uploader.createAndPushNotification(new NotificationItem(detailsTextView.getText().toString(), "12:00", titleTextView.getText().toString()));
+                Toast.makeText(getApplicationContext(), "Notice sent", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
     }

@@ -103,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
         moreNoticesButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
+               //Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
                Intent newIntent = new Intent(v.getContext(), NotificationList.class );
                startActivity(newIntent);
            }
