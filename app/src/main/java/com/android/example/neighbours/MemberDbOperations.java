@@ -17,7 +17,7 @@ public class MemberDbOperations extends SQLiteOpenHelper {
     public static final String DB_NAME="memeber.info.db";
     public static final String CREATE_MEMBER_QUERY="create table "+FlatMember.MemberEntry.TABLE_NAME+
             "("+FlatMember.MemberEntry.NAME+ " text,"+ FlatMember.MemberEntry.PHONE+ " text,"+
-            FlatMember.MemberEntry.EMAIL+" text,"+FlatMember.MemberEntry.RELATION+"text);";
+            FlatMember.MemberEntry.EMAIL+" text,"+FlatMember.MemberEntry.RELATION+" text);";
     MemberDbOperations(Context context) {
         super(context, DB_NAME,null,DB_VERSION);
         Log.d("MemberDatabase","Database Created..");

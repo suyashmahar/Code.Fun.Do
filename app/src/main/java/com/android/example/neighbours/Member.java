@@ -17,13 +17,13 @@ public class Member {
         return name;
     }
     public String getPhone(){
-        return name;
+        return phone;
     }
     public String getEmail(){
-        return name;
+        return email;
     }
     public String getRelation(){
-        return name;
+        return relation;
     }
     public void setName(String a){
         this.name=a;
