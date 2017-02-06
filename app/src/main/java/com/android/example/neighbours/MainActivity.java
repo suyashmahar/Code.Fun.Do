@@ -31,7 +31,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     Boolean bool=false;
-    EditText password;
+    EditText username,password;
     Button createNewAccount,login;
 
     @Override
@@ -43,11 +43,17 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,HomeActivity.class);
-                startActivity(i);
+                if(username.getText().toString()=="codefundo" && password.getText().toString()=="password") {
+                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Invalid Username or Password ", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         ImageView hide=(ImageView) findViewById(R.id.hide_show);
+        username=(EditText)findViewById(R.id.username);
         password=(EditText)findViewById(R.id.password);
 
 
