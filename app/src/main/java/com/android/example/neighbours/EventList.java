@@ -74,7 +74,7 @@ public class EventList extends AppCompatActivity implements ClickListener{
                                 event.get("title"),
                                 event.get("votes")
                         ));
-                        eventCount++;
+
                     } else {
                         break;
                     }
