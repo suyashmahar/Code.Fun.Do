@@ -104,12 +104,13 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
         });
         Button moreNoticesButton =(Button)findViewById(R.id.activity_home_more_notice_button);
         moreNoticesButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               //Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
-               Intent newIntent = new Intent(v.getContext(), NotificationList.class );
-               startActivity(newIntent);
-           }
+                                                 @Override
+                                                 public void onClick(View v) {
+                                                     //Toast.makeText(getApplicationContext(), "message", Toast.LENGTH_LONG).show();
+                                                     Intent newIntent = new Intent(v.getContext(), NotificationList.class);
+                                                     startActivity(newIntent);
+                                                 }
+                                             });
         Button moreCoplaintButton=(Button)findViewById(R.id.activity_home_more_complaints_button);
         moreCoplaintButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -283,7 +284,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
 
                 MainActivityComplaintsAdapter notificationAdapter = new MainActivityComplaintsAdapter(complaintsList);
                 complaintsRecyclerView.setAdapter(notificationAdapter);
-
+                notificationAdapter.setClickListener(HomeActivity.this);
                 notificationAdapter.notifyDataSetChanged();
             }
 
@@ -299,7 +300,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
 
     @Override
     public void itemClicked(View view, int position) {
-        if(view == notificationRecyclerView){
+        if(view.getId()==R.id.notification_card_layout){
             TextView title=(TextView)view.findViewById(R.id.notification_card_title);
             TextView date=(TextView)view.findViewById(R.id.notification_card_date);
             TextView description=(TextView)view.findViewById(R.id.notification_card_description);
@@ -311,7 +312,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
 
             startActivity(i);
         }
-        if(view==eventsRecyclerView){
+        if(view.getId()==R.id.event_card_layout){
             ImageView img=(ImageView)view.findViewById(R.id.event_card_image);
             TextView title=(TextView)view.findViewById(R.id.event_card_title);
             TextView description=(TextView)view.findViewById(R.id.event_card_description);
@@ -328,12 +329,12 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
             i.putExtra("EventComments",comments.getText().toString());
             startActivity(i);
         }
-        if(view==campaignRecyclerView){
-            ImageView img=(ImageView)view.findViewById(R.id.campaign_tile_image);
-            TextView title=(TextView)view.findViewById(R.id.campaign_tile_title);
-            TextView description=(TextView)view.findViewById(R.id.campaign_tile_description);
-            TextView date=(TextView)view.findViewById(R.id.campaign_tile_rel_time);
-            TextView hearts=(TextView)view.findViewById(R.id.campaign_tile_total_fund);
+        if(view.getId()==R.id.campaign_card_layout){
+            ImageView img=(ImageView)view.findViewById(R.id.campaign_card_image);
+            TextView title=(TextView)view.findViewById(R.id.campaign_card_title);
+            TextView description=(TextView)view.findViewById(R.id.campaign_card_description);
+            TextView date=(TextView)view.findViewById(R.id.campaign_card_rel_time);
+            TextView hearts=(TextView)view.findViewById(R.id.campaign_card_total_fund);
 
             Intent i=new Intent(HomeActivity.this,CampaignDetail.class);
 
@@ -344,5 +345,20 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
             startActivity(i);
 
         }
+      if(view.getId()==R.id.complaint_card_layout){
+          TextView title=(TextView)view.findViewById(R.id.complaint_card_title);
+          TextView description=(TextView)view.findViewById(R.id.complaint_card_description);
+          TextView sender=(TextView)view.findViewById(R.id.complaint_card_sender);
+          TextView date=(TextView)view.findViewById(R.id.complaint_card_date);
+
+          Intent i=new Intent(HomeActivity.this,ComplaintDetail.class);
+
+          i.putExtra("ComplaintTitle",title.getText().toString());
+          i.putExtra("ComplaintSender",sender.getText().toString());
+          i.putExtra("ComplaintDescription",description.getText().toString());
+          i.putExtra("ComplaintTime",date.getText().toString());
+
+          startActivity(i);
+      }
     }
 }

@@ -10,10 +10,10 @@ public class Campaign {
     public String description;
     public String totalFunds;
     public String funds;
-    public String FundsProgress;
+    public String fundsProgress;
     public String time;
 
-    public Campaign(String description, String fundsProgress, String id, String title, String totalFunds, String funds) {
+    public Campaign(String description, String fundsProgres, String id, String title, String totalFunds, String funds) {
         this.description = description;
         this.fundsProgress = fundsProgress;
         this.id = id;
