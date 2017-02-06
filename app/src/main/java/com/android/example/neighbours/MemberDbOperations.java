@@ -14,7 +14,7 @@ import android.util.Log;
 public class MemberDbOperations extends SQLiteOpenHelper {
 
     public static final int DB_VERSION=1;
-    public static final String DB_NAME="memeber.info.db";
+    public static final String DB_NAME="member.info.db";
     public static final String CREATE_MEMBER_QUERY="create table "+FlatMember.MemberEntry.TABLE_NAME+
             "("+FlatMember.MemberEntry.NAME+ " text,"+ FlatMember.MemberEntry.PHONE+ " text,"+
             FlatMember.MemberEntry.EMAIL+" text,"+FlatMember.MemberEntry.RELATION+" text);";
