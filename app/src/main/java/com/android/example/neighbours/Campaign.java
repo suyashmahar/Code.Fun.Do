@@ -9,15 +9,25 @@ public class Campaign {
     public String title;
     public String description;
     public String totalFunds;
+    public String funds;
     public String FundsProgress;
     public String time;
 
-    public Campaign(String description, String fundsProgress, String id, String title, String totalFunds) {
+    public Campaign(String description, String fundsProgress, String id, String title, String totalFunds, String funds) {
         this.description = description;
         FundsProgress = fundsProgress;
         this.id = id;
         this.title = title;
         this.totalFunds = totalFunds;
+        this.funds = funds;
+    }
+
+    public String getFunds() {
+        return funds;
+    }
+
+    public void setFunds(String funds) {
+        this.funds = funds;
     }
 
     public String getTime() {

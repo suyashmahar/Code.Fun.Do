@@ -67,7 +67,8 @@ public class CampaignList extends AppCompatActivity implements ClickListener{
                                 campaign.get("total_funds"),
                                 campaign.get("id"),
                                 campaign.get("title"),
-                                campaign.get("total_funds")
+                                campaign.get("total_funds"),
+                                campaign.get("funds")
                         ));
                     } else {
                         break;

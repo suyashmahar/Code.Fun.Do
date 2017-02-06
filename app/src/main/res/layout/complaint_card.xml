@@ -59,6 +59,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:layout_below="@+id/complaint_card_sender"
                 android:maxLines="4"
+                android:lines="4"
                 android:ellipsize="end"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>

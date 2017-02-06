@@ -81,16 +81,12 @@ public class CreateCampaign extends AppCompatActivity implements View.OnClickLis
                  Uploader uploader=new Uploader((getApplicationContext()));
                 //Events events=new Events(campaignDescription.toString(),"a1","sample_image","sample_community","sample_user",latest_time,campaignName.toString(),"sample_votes");
 
-                Campaign campaign = new Campaign(campaignDescription.toString(),"sample funds","sample id",campaignName.toString(),"sample total funds");
+                Campaign campaign = new Campaign(campaignDescription.toString(),"sample funds","sample id",campaignName.toString(),"sample total funds", "100");
                 uploader.createAndPushCampaign(campaign);
             }
         });
 
     }
-
-
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

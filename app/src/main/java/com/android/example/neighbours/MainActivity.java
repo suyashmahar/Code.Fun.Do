@@ -43,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().equals("codefundo") && password.getText().toString().equals("password")) {
+                Intent ia = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(ia);
+
+                if(username.getText().toString().equals("") && password.getText().toString().equals("")) {
                     Intent i = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(i);
                 }

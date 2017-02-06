@@ -179,7 +179,8 @@ public class HomeActivity extends AppCompatActivity {
                                 campaign.get("total_funds"),
                                 campaign.get("id"),
                                 campaign.get("title"),
-                                campaign.get("total_funds")
+                                campaign.get("total_funds"),
+                                campaign.get("funds")
                         ));
                     } else {
                         break;
@@ -251,7 +252,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<Map> post = (ArrayList<Map>) dataSnapshot.getValue();
-                // TODO fix this mess
                 List<ComplaintsItem> complaintsList = new ArrayList<ComplaintsItem>();
 
                 int complaintsCount = 0;
@@ -279,7 +279,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(this, "fetching data from server", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Fetching data from server", Toast.LENGTH_LONG).show();
     }
 
 }
