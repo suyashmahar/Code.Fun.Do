@@ -99,7 +99,10 @@
             android:layout_marginBottom="16dp"
             android:paddingTop="1dp"
             android:src="@mipmap/ic_comments"
+            android:visibility="invisible"
+
             android:layout_alignParentBottom="true"/>
+
         <TextView
             android:id="@+id/event_card_comments_count"
             android:layout_below="@+id/event_card_action_seperator"
@@ -111,6 +114,8 @@
             android:text="100B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="invisible"
+
             />
 
         <ImageView  
@@ -121,6 +126,7 @@
             android:layout_marginBottom="16dp"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:visibility="invisible"
             android:src="@mipmap/ic_three_dot_menu"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>
