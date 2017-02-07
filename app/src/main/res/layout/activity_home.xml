@@ -37,10 +37,19 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:textColor="@color/colorPrimary"/>
 
+            <ProgressBar
+                android:id="@+id/activity_home_events_load_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_below="@+id/activity_home_more_events_button"
+                android:layout_height="50dp"
+                />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/activity_home_events_recycler"
                 android:layout_marginTop="8dp"
-                android:layout_below="@id/activity_home_events_subtitle"
+                android:layout_below="@id/activity_home_events_load_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -75,12 +84,23 @@
                 android:backgroundTint="@color/colorPrimary"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:textColor="@color/colorPrimary"/>
+
+            <ProgressBar
+                android:id="@+id/activity_home_campaign_load_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_below="@+id/activity_home_more_campaign_button"
+                android:layout_height="50dp"
+                />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/activity_home_campaign_recycler"
                 android:layout_marginTop="8dp"
-                android:layout_below="@id/activity_home_campaign_subtitle"
+                android:layout_below="@id/activity_home_campaign_load_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
 
             </android.support.v7.widget.RecyclerView>
 
@@ -112,13 +132,21 @@
                 android:backgroundTint="@color/colorPrimary"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:textColor="@color/colorPrimary"/>
+
+            <ProgressBar
+                android:id="@+id/activity_home_notice_load_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_below="@+id/activity_home_more_notice_button"
+                android:layout_height="50dp"
+                />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/activity_home_notice_recycler"
                 android:layout_marginTop="8dp"
-                android:layout_below="@id/activity_home_notice_subtitle"
+                android:layout_below="@id/activity_home_notice_load_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
             </android.support.v7.widget.RecyclerView>
 
             <TextView
@@ -149,14 +177,27 @@
                 android:backgroundTint="@color/colorPrimary"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:textColor="@color/colorPrimary"/>
+
+
+            <ProgressBar
+                android:id="@+id/activity_home_complaints_load_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_below="@+id/activity_home_more_complaints_button"
+                android:layout_height="50dp"
+                />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/activity_home_complaints_recycler"
                 android:layout_marginTop="8dp"
-                android:layout_below="@id/activity_home_complaints_subtitle"
+                android:layout_below="@id/activity_home_complaints_load_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </android.support.v7.widget.RecyclerView>
+
+
         </RelativeLayout>
 
     </ScrollView>
