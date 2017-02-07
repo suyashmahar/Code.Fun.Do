@@ -85,7 +85,10 @@ public class CampaignListAdapter extends RecyclerView.Adapter<CampaignListAdapte
         holder.title.setText(campaign.getTitle());
         holder.description.setText(campaign.getDescription());
         holder.relTime.setText(campaign.getTime());
-        holder.totalFunds.setText(campaign.getTotalFunds());
+        holder.totalFunds.setText(campaign.getFunds() +  " of " + campaign.getTotalFunds());
+        holder.campaignProgress.setMax(100);
+        holder.campaignProgress.setProgress((int)((Integer.parseInt(campaign.getFunds())/(float)Integer.parseInt(campaign.getTotalFunds()))*100));
+
         //holder.image.getImage(campaign.getDescription());
     }
 
