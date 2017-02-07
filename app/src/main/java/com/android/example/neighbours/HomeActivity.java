@@ -185,7 +185,8 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
                                 campaign.get("id"),
                                 campaign.get("title"),
                                 campaign.get("total_funds"),
-                                campaign.get("funds")
+                                campaign.get("funds"),
+                                campaign.get("time")
                         ));
                     } else {
                         break;

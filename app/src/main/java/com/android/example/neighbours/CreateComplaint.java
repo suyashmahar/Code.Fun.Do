@@ -1,16 +1,20 @@
 package com.android.example.neighbours;
 
+import java.text.DateFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Date;
 
 public class CreateComplaint extends AppCompatActivity
 {
-
+    String[] words;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -19,6 +23,14 @@ public class CreateComplaint extends AppCompatActivity
 
         final RadioButton left=(RadioButton) findViewById(R.id.radio_pub);
         final RadioButton right=(RadioButton) findViewById(R.id.radio_private);
+        TextView date=(TextView)findViewById(R.id.date_complaint);
+
+
+        final String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        words=currentDateTimeString.split("\\s");
+
+// textView is the TextView view that should display it
+        date.setText(currentDateTimeString);
 
         left.setChecked(true);
 
@@ -58,7 +70,7 @@ public class CreateComplaint extends AppCompatActivity
                 //uploader.createAndPushNotification(new NotificationItem(detailsTextView.getText().toString(), "12:00", titleTextView.getText().toString()));
 
                 //uploader.createAndPushComplaints(new Complaint());
-                Complaint complaint=new Complaint("sample_user",details.getText().toString(),"sample_time",name.getText().toString());
+                Complaint complaint=new Complaint("sample_user",details.getText().toString(),words[0]+"\n"+words[1],name.getText().toString());
                 uploader.createAndPushComplaints(complaint);
                 Toast.makeText(getApplicationContext(), "Complaint sent", Toast.LENGTH_LONG).show();
                 finish();

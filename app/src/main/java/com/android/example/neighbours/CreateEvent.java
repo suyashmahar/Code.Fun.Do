@@ -80,9 +80,9 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
                 eventVenue=(EditText)findViewById(R.id.create_event_venue);
                 eventGuests=(EditText)findViewById(R.id.create_event_guests);
                 eventDescription=(EditText)findViewById(R.id.create_event_description);
-
+                String latest_time=date.getText().toString()+"\n"+time.getText().toString();
                 Uploader uploader = new Uploader(getApplicationContext());
-                uploader.createAndPushEvent(new Events(eventDescription.getText().toString(), "a1", "sample_image", "comm","sample", "12:00", eventName.getText().toString(), "100k"));
+                uploader.createAndPushEvent(new Events(eventDescription.getText().toString(), "a1", "sample_image", "comm","sample", latest_time, eventName.getText().toString(), "100k"));
                 Toast.makeText(getApplicationContext(), "Event created", Toast.LENGTH_LONG).show();
                 finish();
 
