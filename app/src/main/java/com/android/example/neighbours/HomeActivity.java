@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +25,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
     RecyclerView campaignRecyclerView;
     RecyclerView notificationRecyclerView;
     RecyclerView complaintsRecyclerView;
+    RelativeLayout membersLayout;
 
     ProgressBar eventsProgressSpinner,campaignProgressSpinner,
             notificationProgressSpinner,complaintsProgressSpinner;
@@ -38,7 +40,14 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
         setContentView(R.layout.activity_home);
 
         Uploader uploader = new Uploader(this);
-
+        membersLayout=(RelativeLayout)findViewById(R.id.members_layout);
+        membersLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,MyFlatMembers.class);
+                startActivity(i);
+            }
+        });
         eventsProgressSpinner = (ProgressBar) findViewById(R.id.activity_home_events_load_progress);
         campaignProgressSpinner = (ProgressBar) findViewById(R.id.activity_home_campaign_load_progress);
         notificationProgressSpinner = (ProgressBar) findViewById(R.id.activity_home_notice_load_progress);
