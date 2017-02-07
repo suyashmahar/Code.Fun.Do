@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +24,10 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
     RecyclerView campaignRecyclerView;
     RecyclerView notificationRecyclerView;
     RecyclerView complaintsRecyclerView;
+
+    ProgressBar eventsProgressSpinner,campaignProgressSpinner,
+            notificationProgressSpinner,complaintsProgressSpinner;
+
     int campaignCount = 1;
     private ClickListener clickListener=null;
 
@@ -33,6 +38,11 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
         setContentView(R.layout.activity_home);
 
         Uploader uploader = new Uploader(this);
+
+        eventsProgressSpinner = (ProgressBar) findViewById(R.id.activity_home_events_load_progress);
+        campaignProgressSpinner = (ProgressBar) findViewById(R.id.activity_home_campaign_load_progress);
+        notificationProgressSpinner = (ProgressBar) findViewById(R.id.activity_home_notice_load_progress);
+        complaintsProgressSpinner = (ProgressBar) findViewById(R.id.activity_home_complaints_load_progress);
 
         try {
             populateEvents();
@@ -52,17 +62,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
 
                 Intent newIntent = new Intent(view.getContext(), EventList.class );
                 startActivity(newIntent);
-                /*
-                Uploader uploader = new Uploader(getApplicationContext());
-                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
 
-                final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
-                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
-                ref.setValue(eventToAdd);
-                campaignCount++;
-
-                uploader.createAndPushEvent(eventToAdd);
-            */
             }
         });
         Button moreCampaignsButton = (Button)findViewById(R.id.activity_home_more_campaign_button);
@@ -72,17 +72,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
 
                 Intent newIntent = new Intent(view.getContext(), CampaignList.class );
                 startActivity(newIntent);
-                /*
-                Uploader uploader = new Uploader(getApplicationContext());
-                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
 
-                final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
-                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
-                ref.setValue(eventToAdd);
-                campaignCount++;
-
-                uploader.createAndPushEvent(eventToAdd);
-            */
             }
         });
         Button moreNotificationButton = (Button)findViewById(R.id.activity_home_more_notice_button);
@@ -92,17 +82,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
 
                 Intent newIntent = new Intent(view.getContext(), NotificationList.class );
                 startActivity(newIntent);
-                /*
-                Uploader uploader = new Uploader(getApplicationContext());
-                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
 
-                final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
-                Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
-                ref.setValue(eventToAdd);
-                campaignCount++;
-
-                uploader.createAndPushEvent(eventToAdd);
-            */
             }
         });
         Button moreNoticesButton =(Button)findViewById(R.id.activity_home_more_notice_button);
@@ -163,6 +143,7 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
                 eventsRecyclerView.setAdapter(eventAdapter);
                 eventAdapter.setClickListener(HomeActivity.this);
                 eventAdapter.notifyDataSetChanged();
+                eventsProgressSpinner.setVisibility(View.GONE);
             }
 
             @Override
@@ -206,13 +187,17 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
                 campaignRecyclerView.setAdapter(campaignAdapter);
                 campaignAdapter.setClickListener(HomeActivity.this);
                 campaignAdapter.notifyDataSetChanged();
+                campaignProgressSpinner.setVisibility(View.GONE);
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
+
         });
+
     }
 
     public void populateNotifications(){
@@ -246,6 +231,8 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
                 notificationRecyclerView.setAdapter(notificationAdapter);
                 notificationAdapter.setClickListener(HomeActivity.this);
                 notificationAdapter.notifyDataSetChanged();
+                notificationProgressSpinner.setVisibility(View.GONE);
+
             }
 
             @Override
@@ -289,6 +276,8 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
                 complaintsRecyclerView.setAdapter(notificationAdapter);
 
                 notificationAdapter.notifyDataSetChanged();
+                complaintsProgressSpinner.setVisibility(View.GONE);
+
             }
 
             @Override

@@ -77,6 +77,8 @@
                 android:layout_marginBottom="16dp"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@mipmap/ic_three_dot_menu"/>
+                android:src="@mipmap/ic_three_dot_menu"
+                android:visibility="invisible"
+                />
         </RelativeLayout>
 </LinearLayout>
