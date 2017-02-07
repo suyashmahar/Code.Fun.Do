@@ -13,13 +13,14 @@ public class Campaign {
     public String fundsProgress;
     public String time;
 
-    public Campaign(String description, String fundsProgress, String id, String title, String total_funds, String funds) {
+    public Campaign(String description, String fundsProgress, String id, String title, String total_funds, String funds,String time) {
         this.description = description;
         this.fundsProgress = fundsProgress;
         this.id = id;
         this.title = title;
         this.total_funds = total_funds;
         this.funds = funds;
+        this.time=time;
     }
 
     public String getFunds() {
