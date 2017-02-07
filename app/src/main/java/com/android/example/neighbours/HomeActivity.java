@@ -31,6 +31,9 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Uploader uploader = new Uploader(this);
+
         try {
             populateEvents();
             populateCampaigns();
