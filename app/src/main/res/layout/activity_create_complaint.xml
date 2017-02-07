@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.android.example.neighbours.create_complaint">
+    tools:context="com.android.example.neighbours.CreateComplaint">
 
     <TextView
         android:layout_width="match_parent"
@@ -75,34 +75,13 @@
                 android:layout_toRightOf="@id/show_date"
                 android:id="@+id/date_complaint" />
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/show_date"
-                android:layout_marginTop="13dp"
                 android:layout_alignStart="@id/show_date"
                 android:textSize="15dp"
-                android:textStyle="bold"
-                android:text="Complainer : "
-                android:id="@+id/complainer_line" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/complainer_line"
-                android:layout_toRightOf="@id/complainer_line"
-                android:layout_centerHorizontal="true"
-                android:textSize="15dp"
-                android:text="Username of current device"
-                android:gravity="center_horizontal"
-                android:id="@+id/complainer" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@id/complainer_line"
-                android:textSize="15dp"
-                android:layout_below="@id/complainer_line"
+                android:layout_below="@id/show_date"
                 android:layout_marginTop="13dp"
                 android:textStyle="bold"
                 android:text="Complaint Type : "

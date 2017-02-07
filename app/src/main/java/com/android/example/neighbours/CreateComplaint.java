@@ -6,7 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class CreateComplaint extends AppCompatActivity
 {
@@ -43,6 +47,29 @@ public class CreateComplaint extends AppCompatActivity
             }
         });
 
+        TextView currentDate = (TextView) findViewById(R.id.date_complaint);
+        final String abc = DateFormat.getDateTimeInstance().format(new Date());
+        String temp="";
+        int i;
+
+        for(i=0;abc.charAt(i)!=' ';++i)
+        {
+            temp+=abc.charAt(i);
+        }
+
+        /*
+        int j=i;
+
+        for( ;j<abc.length();++j)
+        {
+            temp+=abc.charAt(j);
+        }
+          */
+
+        final String x=temp;
+
+        currentDate.setText(x);
+
         Button confirm=(Button) findViewById(R.id.send);
 
         //method to confirm complaint
@@ -58,7 +85,7 @@ public class CreateComplaint extends AppCompatActivity
                 //uploader.createAndPushNotification(new NotificationItem(detailsTextView.getText().toString(), "12:00", titleTextView.getText().toString()));
 
                 //uploader.createAndPushComplaints(new Complaint());
-                Complaint complaint=new Complaint("sample_user",details.getText().toString(),"sample_time",name.getText().toString());
+                Complaint complaint=new Complaint("sample_user",details.getText().toString(),x,name.getText().toString());
                 uploader.createAndPushComplaints(complaint);
                 Toast.makeText(getApplicationContext(), "Complaint sent", Toast.LENGTH_LONG).show();
                 finish();
