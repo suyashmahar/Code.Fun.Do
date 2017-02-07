@@ -8,17 +8,17 @@ public class Campaign {
     public String id;
     public String title;
     public String description;
-    public String totalFunds;
+    public String total_funds;
     public String funds;
     public String fundsProgress;
     public String time;
 
-    public Campaign(String description, String fundsProgress, String id, String title, String totalFunds, String funds) {
+    public Campaign(String description, String fundsProgress, String id, String title, String total_funds, String funds) {
         this.description = description;
         this.fundsProgress = fundsProgress;
         this.id = id;
         this.title = title;
-        this.totalFunds = totalFunds;
+        this.total_funds = total_funds;
         this.funds = funds;
     }
 
@@ -71,10 +71,10 @@ public class Campaign {
     }
 
     public String getTotalFunds() {
-        return totalFunds;
+        return total_funds;
     }
 
-    public void setTotalFunds(String totalFunds) {
-        this.totalFunds = totalFunds;
+    public void setTotalFunds(String total_funds) {
+        this.total_funds = total_funds;
     }
 }

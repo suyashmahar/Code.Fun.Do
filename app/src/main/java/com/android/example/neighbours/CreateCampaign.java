@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 public class CreateCampaign extends AppCompatActivity implements View.OnClickListener{
 
-    EditText campaignName,campaignVenue,campaignDescription,campaignGuests;
+    EditText campaignName,campaignVenue,campaignDescription,campaignGuests, campaignGoals;
 
     private int mYear, mMonth, mDay, mHour, mMinute;
 
@@ -49,6 +49,7 @@ public class CreateCampaign extends AppCompatActivity implements View.OnClickLis
         campaignVenue=(EditText)findViewById(R.id.create_campaign_venue);
         campaignGuests=(EditText)findViewById(R.id.create_campaign_guests);
         campaignDescription=(EditText)findViewById(R.id.create_campaign_description);
+        campaignGoals =(EditText)findViewById(R.id.create_campaign_add_goal);
 
         date=(EditText) findViewById(R.id.create_campaign_date_display);
         time=(EditText) findViewById(R.id.create_campaign_time_display);
@@ -82,7 +83,8 @@ public class CreateCampaign extends AppCompatActivity implements View.OnClickLis
                 String latest_time=date.getText().toString()+";"+time.getText().toString();
                  Uploader uploader=new Uploader((getApplicationContext()));
                 //Events events=new Events(campaignDescription.toString(),"a1","sample_image","sample_community","sample_user",latest
-                Campaign campaign = new Campaign(campaignDescription.getText().toString(),"sample funds","sample id",campaignName.getText().toString(),"sample total funds", "10");
+
+                Campaign campaign = new Campaign(campaignDescription.getText().toString(),"sample funds","sample id",campaignName.getText().toString(),campaignGoals.getText().toString(), "10");
                 uploader.createAndPushCampaign(campaign);
                 Toast.makeText(getApplicationContext(), "Campaign created", Toast.LENGTH_LONG).show();
                 finish();
