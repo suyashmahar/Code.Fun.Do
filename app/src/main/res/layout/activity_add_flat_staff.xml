@@ -70,5 +70,6 @@
         android:layout_below="@+id/add_staff_badge"
         android:layout_marginTop="8dp"
         android:padding="24dp"
+        android:onClick="saveStaff"
         android:text="add staff"/>
 </RelativeLayout>

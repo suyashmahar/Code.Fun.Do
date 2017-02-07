@@ -27,14 +27,16 @@
         <activity android:name=".CreateCampaign" />
         <activity android:name=".MyFlat" />
         <activity android:name=".MyFlatMembers" >
+
+        </activity>
+        <activity android:name=".MyFlatVehicles" />
+        <activity android:name=".MyFlatStaff" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".MyFlatVehicles" />
-        <activity android:name=".MyFlatStaff" />
         <activity android:name=".AddFlatVehicle" />
         <activity android:name=".AddFlatStaff" />
         <activity android:name=".AddFlatMember">

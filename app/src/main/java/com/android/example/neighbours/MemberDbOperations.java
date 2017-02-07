@@ -18,6 +18,9 @@ public class MemberDbOperations extends SQLiteOpenHelper {
     public static final String CREATE_MEMBER_QUERY="create table "+FlatMember.MemberEntry.TABLE_NAME+
             "("+FlatMember.MemberEntry.NAME+ " text,"+ FlatMember.MemberEntry.PHONE+ " text,"+
             FlatMember.MemberEntry.EMAIL+" text,"+FlatMember.MemberEntry.RELATION+" text);";
+    public static final String CREATE_STAFF_QUERY="create table "+FlatStaff.StaffEntry.TABLE_NAME+
+            "("+FlatStaff.StaffEntry.NAME+ " text,"+ FlatStaff.StaffEntry.PHONE+ " text,"+
+            FlatStaff.StaffEntry.BADGE+" text,"+FlatStaff.StaffEntry.ADDRESS+" text);";
     MemberDbOperations(Context context) {
         super(context, DB_NAME,null,DB_VERSION);
         Log.d("MemberDatabase","Database Created..");
@@ -26,6 +29,7 @@ public class MemberDbOperations extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_MEMBER_QUERY);
+        db.execSQL(CREATE_STAFF_QUERY);
         Log.d("MemberDatabase","Table Created..");
     }
 

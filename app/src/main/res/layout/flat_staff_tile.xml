@@ -6,11 +6,12 @@
     android:layout_height="wrap_content"
     android:layout_margin="20dp">
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@mipmap/ic_launcher"
         android:scaleType="fitXY"
         android:layout_marginRight="15dp"
+        android:padding="8dp"
         android:adjustViewBounds="true"
         android:background="@drawable/shape_circle"/>
     <RelativeLayout
@@ -21,15 +22,25 @@
                 android:id="@+id/flat_staff_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:gravity="left"
-                style="@style/Base.TextAppearance.AppCompat.Title"
+                android:layout_marginTop="4dp"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
                 tools:text="Harshit Bansal"/>
+        <TextView
+            android:id="@+id/flat_staff_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/flat_staff_name"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp"
+            android:visibility="invisible"
+            />
         <TextView
             android:id="@+id/txtMobile"
             android:layout_below="@+id/flat_staff_name"
             android:layout_width="wrap_content"
-            android:layout_marginTop="4dp"
+            android:textSize="12sp"
             android:text="Mobile No: "
             android:layout_height="wrap_content" />
         <TextView
@@ -38,15 +49,14 @@
             android:layout_below="@+id/flat_staff_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:layout_marginLeft="4dp"
-            android:textSize="15sp"
+            android:textSize="12sp"
             tools:text="8171784091"/>
         <TextView
             android:id="@+id/txtbadge"
             android:layout_below="@+id/txtMobile"
             android:layout_width="wrap_content"
-            android:layout_marginTop="4dp"
+            android:textSize="12sp"
             android:text="Badge : "
             android:layout_height="wrap_content" />
         <TextView
@@ -55,7 +65,7 @@
             android:layout_below="@+id/txtMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:textSize="12sp"
             android:layout_marginLeft="4dp"
             tools:text="Cook"/>
     </RelativeLayout>
