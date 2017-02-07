@@ -18,7 +18,7 @@ public class EventDetail extends AppCompatActivity {
         eventDetailImage=(ImageView)findViewById(R.id.activity_event_detail_cover_image);
         eventDetailEventName=(TextView)findViewById(R.id.event_detail_name);
         eventDetailHearts=(TextView)findViewById(R.id.event_detail_hearts);
-        eventDetailComments=(TextView)findViewById(R.id.event_detail_comments_count);
+       // eventDetailComments=(TextView)findViewById(R.id.event_detail_comments_count);
         eventDetailTime=(TextView)findViewById(R.id.event_detail_rel_time);
         eventDetailDescription=(TextView)findViewById(R.id.event_detail_description);
 
@@ -35,7 +35,7 @@ public class EventDetail extends AppCompatActivity {
 
             eventDetailEventName.setText(eventName);
             eventDetailHearts.setText(eventHearts);
-            eventDetailComments.setText(eventComments);
+            //eventDetailComments.setText(eventComments);
             eventDetailTime.setText(eventTime);
             eventDetailDescription.setText(eventDescription);
 

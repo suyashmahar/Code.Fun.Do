@@ -49,27 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-    <ImageView
-        android:id="@+id/event_detail_comment"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_toRightOf="@id/event_detail_hearts"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginTop="5dp"
-        android:src="@mipmap/ic_comments"
-        />
-    <TextView
-        android:id="@+id/event_detail_comments_count"
-        android:layout_toEndOf="@id/event_detail_comment"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:textColor="#159EFF"
-        android:text="100B"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+
             <ProgressBar
                 android:id="@+id/event_card_progress_bar"
                 android:layout_width="match_parent"
