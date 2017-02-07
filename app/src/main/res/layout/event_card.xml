@@ -16,8 +16,9 @@
         <ImageView
             android:id="@+id/event_card_image"
             android:layout_width="140dp"
-            android:layout_height="180dp"
-            android:foreground="#3f3f3f"/>
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/party" />
         <TextView
             android:id="@+id/event_card_title"
             android:text="Event Title"
