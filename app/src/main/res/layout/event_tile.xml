@@ -10,7 +10,7 @@
                 android:id="@+id/event_tile_image"
                 android:layout_width="140dp"
                 android:layout_height="170dp"
-                android:foreground="#3f3f3f"/>
+                android:src="@drawable/party" />
             <TextView
                 android:id="@+id/event_tile_title"
                 android:text="Event Title"

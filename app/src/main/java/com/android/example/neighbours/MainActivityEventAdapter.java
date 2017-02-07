@@ -89,11 +89,11 @@ public class MainActivityEventAdapter extends RecyclerView.Adapter<MainActivityE
         holder.description.setText(event.getDescription());
         holder.hearts.setText(event.getVotes());
         holder.commentsCount.setText("100");
-        try {
+        /*try {
             holder.image.setImageBitmap(ImageConverter.toBitmap(event.getImage()));
         } catch (Exception e){
             holder.image.setImageResource(R.mipmap.ic_event_demo_picture);
-        }
+        }*/
     }
 
     @Override
