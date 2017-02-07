@@ -257,16 +257,18 @@ public class HomeActivity extends AppCompatActivity implements ClickListener{
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<Map> post = (ArrayList<Map>) dataSnapshot.getValue();
                 List<ComplaintsItem> complaintsList = new ArrayList<ComplaintsItem>();
-
                 int complaintsCount = 0;
                 for (Map<String, String> complaints : post){
                     if (complaintsCount < 5) {
-                        complaintsList.add(new ComplaintsItem(
-                                complaints.get("by_user"),
-                                complaints.get("description"),
+
+                        ComplaintsItem newComplaint = new ComplaintsItem(
+                                complaints.get("title"),
                                 complaints.get("time"),
-                                complaints.get("title")
-                        ));
+                                complaints.get("description"),
+                                complaints.get("by_user")
+                        );
+
+                        complaintsList.add(newComplaint);
                     } else {
                         break;
                     }
