@@ -8,7 +8,7 @@ public class ComplaintsItem {
 
     public String title, description, time, byUser;
 
-    public ComplaintsItem(String tile, String time, String description, String byUser) {
+    public ComplaintsItem(String title, String time, String description, String byUser) {
         this.byUser = byUser;
         this.description = description;
         this.time = time;

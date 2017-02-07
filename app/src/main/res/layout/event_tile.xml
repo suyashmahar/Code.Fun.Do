@@ -10,7 +10,7 @@
                 android:id="@+id/event_tile_image"
                 android:layout_width="140dp"
                 android:layout_height="170dp"
-                android:foreground="#3f3f3f"/>
+                android:src="@drawable/party" />
             <TextView
                 android:id="@+id/event_tile_title"
                 android:text="Event Title"
@@ -73,6 +73,8 @@
                 android:layout_marginBottom="16dp"
                 android:paddingTop="5dp"
                 android:src="@mipmap/ic_comments"
+                android:visibility="invisible"
+
                 android:layout_alignParentBottom="true"/>
             <TextView
                 android:id="@+id/event_tile_comments_count"
@@ -83,6 +85,8 @@
                 android:text="100B"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
+
                 android:layout_alignParentBottom="true"
                 />
 
@@ -94,6 +98,8 @@
                 android:layout_marginBottom="16dp"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@mipmap/ic_three_dot_menu"/>
+                android:src="@mipmap/ic_three_dot_menu"
+                android:visibility="invisible"
+                />
         </RelativeLayout>
 

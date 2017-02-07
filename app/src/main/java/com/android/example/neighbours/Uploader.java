@@ -49,7 +49,7 @@ public class Uploader {
 
         final DatabaseReference eventsCountRef = database.getReference("commuities/" + community + "/counts");
 
-        eventsCountRef.addValueEventListener(new ValueEventListener() {
+        eventsCountRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map post = (Map) dataSnapshot.getValue();
@@ -91,6 +91,7 @@ public class Uploader {
         settings = context.getSharedPreferences(PREFERENCE_NAME, 0);
         String community = settings.getString("community_name", "sample_community");
 
+        refershCount(CAMPAIGNS);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference ref = database.getReference("commuities/" + community + "/campaigns/" + (int)(campaignCount));
         ref.setValue(campaign);
@@ -124,11 +125,44 @@ public class Uploader {
         return 1;
     }
 
-    public static void incrementCount(String countType, int incrementBy){
+    public int refershCount(String countType){
+
+        settings = context.getSharedPreferences(PREFERENCE_NAME, 0);
+        community = settings.getString("community_name", "sample_community");
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
 
+        final DatabaseReference eventsCountRef = database.getReference("commuities/" + community + "/counts");
+
+        eventsCountRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map post = (Map) dataSnapshot.getValue();
+
+                eventCount = (int)(long)(post.get(EVENTS));
+                campaignCount = (int)(long)(post.get(CAMPAIGNS));
+                notificationCount = (int)(long)post.get(NOTIFICATIONS);
+                complaintsCount = (int)(long)post.get(COMPLAINTS);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //
+            }
+        });
+
+
+        //commuities/sample_community/counts/campaign
+
+        final DatabaseReference ref = database.getReference("commuities/sample_community/events/" + campaignCount);
+        Events eventToAdd = new Events("this is a description", "a1", "sample_image", "sample_community", "sample_organizer", "12:00", "sample_title","100k");
+        ref.setValue(eventToAdd);
+        return  1;
+    }
+
+    public static void incrementCount(String countType, int incrementBy){
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference ref;
 

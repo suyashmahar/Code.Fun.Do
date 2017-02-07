@@ -53,10 +53,6 @@ public class ComplaintListAdapter extends RecyclerView.Adapter<ComplaintListAdap
     }
 
 
-    public ComplaintListAdapter(){
-        this.complaints= complaints;
-    }
-
     public void setList(List<ComplaintsItem> notifications){
         this.complaints= notifications;
     }
