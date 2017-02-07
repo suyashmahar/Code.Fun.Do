@@ -12,7 +12,7 @@
                 android:id="@+id/campaign_tile_image"
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
-                android:foreground="#3f3f3f"/>
+                android:src="@mipmap/vote"/>
             <TextView
                 android:id="@+id/campaign_tile_title"
                 android:text="Campaign Title"

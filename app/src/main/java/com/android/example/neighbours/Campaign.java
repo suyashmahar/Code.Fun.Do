@@ -13,7 +13,9 @@ public class Campaign {
     public String fundsProgress;
     public String time;
 
+
     public Campaign(String description, String fundsProgress, String id, String title, String total_funds, String funds,String time) {
+
         this.description = description;
         this.fundsProgress = fundsProgress;
         this.id = id;

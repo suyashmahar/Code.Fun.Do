@@ -8,23 +8,23 @@
     <ImageView
         android:id="@+id/activity_event_detail_cover_image"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
         android:fitsSystemWindows="true"
-        android:src="@drawable/cover_image"/>
+        android:src="@drawable/events_banner"/>
     <TextView
         android:id="@+id/event_detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_alignBottom="@+id/activity_event_detail_cover_image"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/activity_event_detail_cover_image"
         tools:text="Event Name"
         style="@style/Base.TextAppearance.AppCompat.Title"/>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/activity_event_detail_cover_image">
+        android:layout_below="@id/event_detail_name">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,27 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-    <ImageView
-        android:id="@+id/event_detail_comment"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_toRightOf="@id/event_detail_hearts"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginTop="5dp"
-        android:src="@mipmap/ic_comments"
-        />
-    <TextView
-        android:id="@+id/event_detail_comments_count"
-        android:layout_toEndOf="@id/event_detail_comment"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:textColor="#159EFF"
-        android:text="100B"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+
             <ProgressBar
                 android:id="@+id/event_card_progress_bar"
                 android:layout_width="match_parent"

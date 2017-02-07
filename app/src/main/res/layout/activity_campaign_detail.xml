@@ -8,23 +8,23 @@
     <ImageView
         android:id="@+id/activity_campaign_detail_cover_image"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
         android:fitsSystemWindows="true"
-        android:src="@drawable/cover_image"/>
+        android:src="@drawable/back_campaign"/>
     <TextView
         android:id="@+id/campaign_detail_event_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_alignBottom="@+id/activity_campaign_detail_cover_image"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/activity_campaign_detail_cover_image"
         tools:text="Event Name"
         style="@style/Base.TextAppearance.AppCompat.Title"/>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/activity_campaign_detail_cover_image">
+            android:layout_below="@id/campaign_detail_event_name">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
